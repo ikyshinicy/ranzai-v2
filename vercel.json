@@ -1,0 +1,154 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/auth/login.html",
+      "destination": "/login",
+      "permanent": true
+    },
+    {
+      "source": "/auth/register.html",
+      "destination": "/register",
+      "permanent": true
+    },
+    {
+      "source": "/auth/reset-password.html",
+      "destination": "/reset-password",
+      "permanent": true
+    },
+    {
+      "source": "/dashboard/index.html",
+      "destination": "/dashboard",
+      "permanent": true
+    },
+    {
+      "source": "/src/tools",
+      "destination": "/tools",
+      "permanent": true
+    },
+    {
+      "source": "/src/tools/",
+      "destination": "/tools",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/pages/landing/index.html"
+    },
+    {
+      "source": "/dashboard",
+      "destination": "/pages/dashboard/index.html"
+    },
+    {
+      "source": "/dashboard/",
+      "destination": "/pages/dashboard/index.html"
+    },
+    {
+      "source": "/login",
+      "destination": "/pages/auth/login.html"
+    },
+    {
+      "source": "/login/",
+      "destination": "/pages/auth/login.html"
+    },
+    {
+      "source": "/register",
+      "destination": "/pages/auth/register.html"
+    },
+    {
+      "source": "/register/",
+      "destination": "/pages/auth/register.html"
+    },
+    {
+      "source": "/reset-password",
+      "destination": "/pages/auth/reset-password.html"
+    },
+    {
+      "source": "/reset-password/",
+      "destination": "/pages/auth/reset-password.html"
+    },
+    {
+      "source": "/auth/terms",
+      "destination": "/pages/auth/terms.html"
+    },
+    {
+      "source": "/tools",
+      "destination": "/pages/tools/index.html"
+    },
+    {
+      "source": "/tools/",
+      "destination": "/pages/tools/index.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/pages/contact/index.html"
+    },
+    {
+      "source": "/contact/",
+      "destination": "/pages/contact/index.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/pages/legal/privacy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/pages/legal/terms.html"
+    },
+    {
+      "source": "/topup-success",
+      "destination": "/pages/system/topup-success/index.html"
+    },
+    {
+      "source": "/mockup",
+      "destination": "/tools/mockup/index.html"
+    },
+    {
+      "source": "/mockup/",
+      "destination": "/tools/mockup/index.html"
+    },
+    {
+      "source": "/breakdown",
+      "destination": "/pages/redirects/breakdown.html"
+    },
+    {
+      "source": "/design",
+      "destination": "/pages/redirects/design.html"
+    },
+    {
+      "source": "/write",
+      "destination": "/pages/redirects/write.html"
+    },
+    {
+      "source": "/gel",
+      "destination": "/pages/redirects/gel.html"
+    },
+    {
+      "source": "/cut",
+      "destination": "/pages/redirects/cut.html"
+    },
+    {
+      "source": "/convert",
+      "destination": "/pages/redirects/convert.html"
+    },
+    {
+      "source": "/doc",
+      "destination": "/pages/redirects/doc.html"
+    },
+    {
+      "source": "/vector",
+      "destination": "/pages/redirects/vector.html"
+    },
+    {
+      "source": "/payment",
+      "destination": "/pages/redirects/payment.html"
+    },
+    {
+      "source": "/support",
+      "destination": "/pages/redirects/support.html"
+    }
+  ]
+}
