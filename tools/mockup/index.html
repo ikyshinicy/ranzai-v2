@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<title>RanzAI Mockup — Mockup Generator Tool</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f0f7ff;
+  --bg2:#e6f2ff;
+  --surface:#ffffff;
+  --border:rgba(0,100,220,0.10);
+  --border2:rgba(0,100,220,0.18);
+  --ink:#0d1f3c;
+  --ink2:#1a3560;
+  --muted:#6b84a8;
+  --muted2:#9ab0ce;
+  --blue:#1a6bff;
+  --cyan:#00d4c8;
+  --green:#10b981;
+  --lime:#22e5a0;
+  --purple:#7c3aed;
+  --r:16px;
+  --rs:10px;
+  --shadow:0 8px 40px rgba(26,107,255,0.10);
+  --shadow2:0 20px 60px rgba(26,107,255,0.16);
+}
+html{scroll-behavior:smooth;}
+body{
+  background:transparent;
+  color:var(--ink);
+  font-family:'Montserrat',sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+main{
+  max-width:1160px;
+  margin:0 auto;
+  padding:1.5rem 1.5rem 5rem;
+}
+.hero{
+  text-align:center;
+  margin-bottom:2.6rem;
+}
+.hero-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:11px;
+  font-weight:700;
+  color:var(--green);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:20px;
+  padding:6px 18px;
+  border-radius:999px;
+  border:1px solid rgba(16,185,129,.25);
+  background:rgba(16,185,129,.07);
+}
+.chip-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--cyan);
+  animation:blink 2s infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.2;}}
+.hero h1{
+  font-size:clamp(2.2rem,6vw,3.6rem);
+  font-weight:800;
+  line-height:1.05;
+  letter-spacing:-.03em;
+  color:var(--ink);
+  margin-bottom:1rem;
+}
+.hero h1 .accent{
+  background:linear-gradient(135deg,var(--green),var(--cyan));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero p{
+  font-size:16px;
+  color:var(--muted);
+  max-width:620px;
+  margin:0 auto;
+  line-height:1.75;
+}
+.tool-layout{
+  display:grid;
+  grid-template-columns:260px 1fr 260px;
+  gap:18px;
+  align-items:start;
+}
+.panel{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:22px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.panel-head{
+  padding:16px 18px;
+  border-bottom:1px solid var(--border);
+  background:rgba(230,242,255,.65);
+}
+.panel-title{
+  font-size:11px;
+  font-weight:800;
+  color:var(--ink2);
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.panel-body{padding:18px;}
+.upload-box{
+  position:relative;
+  border:2px dashed var(--border2);
+  border-radius:16px;
+  padding:26px 16px;
+  text-align:center;
+  background:var(--bg);
+  cursor:pointer;
+  transition:all .2s;
+}
+.upload-box:hover{
+  border-color:var(--green);
+  background:rgba(16,185,129,.06);
+}
+.upload-box input{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  cursor:pointer;
+}
+.upload-icon{
+  width:54px;
+  height:54px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 12px;
+  font-size:26px;
+  background:linear-gradient(135deg,rgba(16,185,129,.12),rgba(0,212,200,.12));
+  border:1px solid rgba(16,185,129,.18);
+}
+.upload-title{
+  font-size:14px;
+  font-weight:800;
+  color:var(--ink);
+  margin-bottom:4px;
+}
+.upload-sub{
+  font-size:11px;
+  font-weight:500;
+  color:var(--muted);
+}
+.file-info{
+  display:none;
+  margin-top:12px;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:#fff;
+}
+.file-name{
+  font-size:12px;
+  font-weight:700;
+  color:var(--ink);
+  word-break:break-word;
+}
+.file-meta{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:2px;
+}
+.template-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.template-btn{
+  width:100%;
+  border:1.5px solid var(--border2);
+  background:#fff;
+  color:var(--muted);
+  border-radius:12px;
+  padding:10px 12px;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+  transition:all .2s;
+  text-align:left;
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+.template-btn:hover{
+  border-color:rgba(16,185,129,.35);
+  color:var(--ink);
+}
+.template-btn.active{
+  background:rgba(16,185,129,.08);
+  border-color:rgba(16,185,129,.38);
+  color:var(--green);
+}
+.canvas-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:24px;
+  box-shadow:var(--shadow2);
+  overflow:hidden;
+}
+.canvas-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:16px 18px;
+  border-bottom:1px solid var(--border);
+  background:rgba(230,242,255,.72);
+}
+.canvas-title{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink2);
+}
+.canvas-hint{
+  font-size:11px;
+  font-weight:600;
+  color:var(--muted);
+}
+.canvas-wrap{
+  padding:22px;
+  background:
+    linear-gradient(45deg, rgba(26,107,255,.04) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(26,107,255,.04) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(26,107,255,.04) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(26,107,255,.04) 75%);
+  background-size:24px 24px;
+  background-position:0 0,0 12px,12px -12px,-12px 0;
+}
+canvas{
+  width:100%;
+  max-width:720px;
+  aspect-ratio:4/3;
+  display:block;
+  margin:0 auto;
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 18px 50px rgba(13,31,60,.14);
+  touch-action:none;
+}
+.control-group{
+  margin-bottom:18px;
+}
+.control-label{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:11px;
+  font-weight:800;
+  color:var(--ink2);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.control-value{
+  color:var(--green);
+  font-weight:800;
+}
+input[type=range]{
+  width:100%;
+  accent-color:var(--green);
+}
+.action-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:14px;
+}
+.btn{
+  border:none;
+  border-radius:12px;
+  padding:11px 12px;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+  transition:all .2s;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--green),var(--cyan));
+  color:#fff;
+  box-shadow:0 6px 26px rgba(16,185,129,.30);
+}
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 36px rgba(16,185,129,.42);
+}
+.btn-soft{
+  background:#fff;
+  color:var(--muted);
+  border:1.5px solid var(--border2);
+}
+.btn-soft:hover{
+  border-color:rgba(16,185,129,.35);
+  color:var(--green);
+}
+.btn-full{
+  width:100%;
+  margin-top:8px;
+}
+.note-box{
+  margin-top:14px;
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.6;
+  padding:12px;
+  background:rgba(16,185,129,.06);
+  border:1px solid rgba(16,185,129,.16);
+  border-radius:14px;
+}
+
+@media(max-width:960px){@media(max-width:960px){}
+  main{
+    padding:2rem 1rem 4rem;
+  }
+  .hero h1{
+    font-size:2.35rem;
+  }
+  .canvas-wrap{
+    padding:14px;
+  }
+  }
+</style>
+</head>
+
+<body>
+<main>
+  <section class="hero">
+    <div class="hero-chip"><span class="chip-dot"></span>Tool · Mockup Generator</div>
+    <h1>Buat Mockup<br><span class="accent">Cepat & Rapi.</span></h1>
+    <p>Upload desain, pilih jenis mockup, atur posisi, lalu download hasil PNG. Diproses oleh Engine RanzAI.</p>
+  </section>
+
+  <section class="tool-layout">
+    <aside class="panel">
+      <div class="panel-head">
+        <div class="panel-title">Upload Design</div>
+      </div>
+      <div class="panel-body">
+        <label class="upload-box">
+          <input type="file" id="designInput" accept="image/png,image/jpeg,image/webp,image/svg+xml"/>
+          <div class="upload-icon">↑</div>
+          <div class="upload-title">Upload desain</div>
+          <div class="upload-sub">PNG · JPG · WEBP · SVG</div>
+        </label>
+
+        <div class="file-info" id="fileInfo">
+          <div class="file-name" id="fileName">design.png</div>
+          <div class="file-meta" id="fileMeta">Siap ditempel ke mockup</div>
+        </div>
+
+        <div class="note-box">
+          Tips: gunakan desain PNG transparan supaya hasil mockup terlihat lebih bersih.
+        </div>
+      </div>
+    </aside>
+
+    <section class="canvas-card">
+      <div class="canvas-top">
+        <div>
+          <div class="canvas-title">Preview Mockup</div>
+          <div class="canvas-hint">Drag desain langsung di area mockup</div>
+        </div>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="mockupCanvas" width="1200" height="900"></canvas>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <div class="panel-head">
+        <div class="panel-title">Mockup Control</div>
+      </div>
+      <div class="panel-body">
+        <div class="control-group">
+          <div class="control-label">Template <span class="control-value" id="templateName">T-Shirt</span></div>
+          <div class="template-list">
+            <button class="template-btn active" data-template="tshirt">👕 T-Shirt</button>
+            <button class="template-btn" data-template="poster">🖼️ Poster Frame</button>
+            <button class="template-btn" data-template="banner">🏷️ Banner</button>
+            <button class="template-btn" data-template="billboard">🏙️ Billboard</button>
+            <button class="template-btn" data-template="card">💳 Business Card</button>
+            <button class="template-btn" data-template="packaging">📦 Packaging</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">Scale <span class="control-value" id="scaleVal">100%</span></div>
+          <input type="range" id="scaleRange" min="20" max="240" value="100"/>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">Rotate <span class="control-value" id="rotateVal">0°</span></div>
+          <input type="range" id="rotateRange" min="-45" max="45" value="0"/>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">Opacity <span class="control-value" id="opacityVal">100%</span></div>
+          <input type="range" id="opacityRange" min="10" max="100" value="100"/>
+        </div>
+
+        <div class="action-row">
+          <button class="btn btn-soft" id="centerBtn">Center</button>
+          <button class="btn btn-soft" id="resetBtn">Reset</button>
+        </div>
+
+        <button class="btn btn-primary btn-full" id="downloadBtn">Download PNG</button>
+
+        <div class="note-box">
+          Tahap MVP: mockup ini berbasis canvas. Nanti bisa ditingkatkan ke realistic mockup setelah alur awal stabil.
+        </div>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<script>
+const canvas = document.getElementById('mockupCanvas');
+const ctx = canvas.getContext('2d');
+
+const designInput = document.getElementById('designInput');
+const fileInfo = document.getElementById('fileInfo');
+const fileName = document.getElementById('fileName');
+const fileMeta = document.getElementById('fileMeta');
+
+const scaleRange = document.getElementById('scaleRange');
+const rotateRange = document.getElementById('rotateRange');
+const opacityRange = document.getElementById('opacityRange');
+
+const scaleVal = document.getElementById('scaleVal');
+const rotateVal = document.getElementById('rotateVal');
+const opacityVal = document.getElementById('opacityVal');
+const templateName = document.getElementById('templateName');
+
+const centerBtn = document.getElementById('centerBtn');
+const resetBtn = document.getElementById('resetBtn');
+const downloadBtn = document.getElementById('downloadBtn');
+
+let currentTemplate = 'tshirt';
+let designImg = null;
+
+let design = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  scale: 1,
+  rotation: 0,
+  opacity: 1
+};
+
+let drag = {
+  active: false,
+  startX: 0,
+  startY: 0,
+  originX: 0,
+  originY: 0
+};
+
+const templateLabels = {
+  tshirt: 'T-Shirt',
+  poster: 'Poster Frame',
+  banner: 'Banner',
+  billboard: 'Billboard',
+  card: 'Business Card',
+  packaging: 'Packaging'
+};
+
+function getPointer(e){
+  const rect = canvas.getBoundingClientRect();
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+  return {
+    x: (clientX - rect.left) * (canvas.width / rect.width),
+    y: (clientY - rect.top) * (canvas.height / rect.height)
+  };
+}
+
+function drawRoundedRect(x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.lineTo(x+w-r,y);
+  ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+  ctx.lineTo(x+w,y+h-r);
+  ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  ctx.lineTo(x+r,y+h);
+  ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+  ctx.lineTo(x,y+r);
+  ctx.quadraticCurveTo(x,y,x+r,y);
+  ctx.closePath();
+}
+
+function drawBackground(){
+  const grad = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+  grad.addColorStop(0,'#eaf5ff');
+  grad.addColorStop(1,'#f7fffb');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  ctx.fillStyle = 'rgba(26,107,255,0.045)';
+  for(let x=0;x<canvas.width;x+=48){
+    ctx.fillRect(x,0,1,canvas.height);
+  }
+  for(let y=0;y<canvas.height;y+=48){
+    ctx.fillRect(0,y,canvas.width,1);
+  }
+}
+
+function drawTshirt(){
+  drawBackground();
+
+  ctx.save();
+  ctx.translate(600,470);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.shadowColor = 'rgba(13,31,60,0.18)';
+  ctx.shadowBlur = 40;
+  ctx.shadowOffsetY = 24;
+
+  ctx.beginPath();
+  ctx.moveTo(-210,-250);
+  ctx.lineTo(-330,-160);
+  ctx.lineTo(-260,-45);
+  ctx.lineTo(-190,-88);
+  ctx.lineTo(-170,260);
+  ctx.quadraticCurveTo(0,310,170,260);
+  ctx.lineTo(190,-88);
+  ctx.lineTo(260,-45);
+  ctx.lineTo(330,-160);
+  ctx.lineTo(210,-250);
+  ctx.quadraticCurveTo(110,-305,45,-250);
+  ctx.quadraticCurveTo(0,-215,-45,-250);
+  ctx.quadraticCurveTo(-110,-305,-210,-250);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.shadowColor = 'transparent';
+  ctx.lineWidth = 4;
+  ctx.strokeStyle = 'rgba(13,31,60,0.08)';
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(0,-245,76,0,Math.PI);
+  ctx.strokeStyle = 'rgba(13,31,60,0.10)';
+  ctx.lineWidth = 10;
+  ctx.stroke();
+
+  ctx.fillStyle = 'rgba(16,185,129,0.08)';
+  drawRoundedRect(-145,-95,290,230,22);
+  ctx.fill();
+
+  ctx.restore();
+}
+
+function drawPoster(){
+  drawBackground();
+
+  ctx.save();
+  ctx.translate(600,450);
+
+  ctx.fillStyle = '#2b3445';
+  ctx.shadowColor = 'rgba(13,31,60,.22)';
+  ctx.shadowBlur = 45;
+  ctx.shadowOffsetY = 28;
+  drawRoundedRect(-290,-340,580,680,26);
+  ctx.fill();
+
+  ctx.shadowColor = 'transparent';
+  ctx.fillStyle = '#ffffff';
+  drawRoundedRect(-252,-302,504,604,16);
+  ctx.fill();
+
+  ctx.fillStyle = '#f0f7ff';
+  drawRoundedRect(-205,-230,410,460,8);
+  ctx.fill();
+
+  ctx.restore();
+}
+
+function drawBanner(){
+  drawBackground();
+
+  ctx.save();
+  ctx.translate(600,450);
+
+  ctx.fillStyle = '#10233f';
+  ctx.shadowColor = 'rgba(13,31,60,.24)';
+  ctx.shadowBlur = 38;
+  ctx.shadowOffsetY = 24;
+  drawRoundedRect(-430,-150,860,300,24);
+  ctx.fill();
+
+  ctx.shadowColor = 'transparent';
+  const grad = ctx.createLinearGradient(-430,-150,430,150);
+  grad.addColorStop(0,'#10b981');
+  grad.addColorStop(.5,'#00d4c8');
+  grad.addColorStop(1,'#1a6bff');
+  ctx.globalAlpha = .18;
+  ctx.fillStyle = grad;
+  drawRoundedRect(-410,-130,820,260,18);
+  ctx.fill();
+  ctx.globalAlpha = 1;
+
+  ctx.fillStyle = 'rgba(255,255,255,.08)';
+  for(let x=-380;x<390;x+=70){
+    ctx.fillRect(x,-130,16,260);
+  }
+
+  ctx.restore();
+}
+
+function drawBillboard(){
+  drawBackground();
+
+  ctx.save();
+
+  ctx.fillStyle = '#2b3445';
+  ctx.fillRect(565,610,70,210);
+
+  ctx.fillStyle = '#1a2436';
+  ctx.fillRect(455,790,290,38);
+
+  ctx.translate(600,350);
+  ctx.fillStyle = '#ffffff';
+  ctx.shadowColor = 'rgba(13,31,60,.22)';
+  ctx.shadowBlur = 42;
+  ctx.shadowOffsetY = 26;
+  drawRoundedRect(-390,-190,780,380,26);
+  ctx.fill();
+
+  ctx.shadowColor = 'transparent';
+  ctx.strokeStyle = '#1a2436';
+  ctx.lineWidth = 16;
+  drawRoundedRect(-390,-190,780,380,26);
+  ctx.stroke();
+
+  ctx.fillStyle = '#f0f7ff';
+  drawRoundedRect(-335,-135,670,270,14);
+  ctx.fill();
+
+  ctx.restore();
+}
+
+function drawCard(){
+  drawBackground();
+
+  ctx.save();
+  ctx.translate(600,450);
+  ctx.rotate(-0.10);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.shadowColor = 'rgba(13,31,60,.22)';
+  ctx.shadowBlur = 40;
+  ctx.shadowOffsetY = 26;
+  drawRoundedRect(-330,-190,660,380,28);
+  ctx.fill();
+
+  ctx.shadowColor = 'transparent';
+  ctx.fillStyle = 'rgba(16,185,129,.08)';
+  drawRoundedRect(-285,-120,570,240,18);
+  ctx.fill();
+
+  ctx.fillStyle = '#10233f';
+  ctx.font = '800 42px Montserrat';
+  ctx.fillText('BRAND',-275,-138);
+
+  ctx.fillStyle = 'rgba(107,132,168,.7)';
+  ctx.font = '600 24px Montserrat';
+  ctx.fillText('Business Card Mockup',-275,155);
+
+  ctx.restore();
+}
+
+function drawPackaging(){
+  drawBackground();
+
+  ctx.save();
+  ctx.translate(600,460);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.shadowColor = 'rgba(13,31,60,.22)';
+  ctx.shadowBlur = 42;
+  ctx.shadowOffsetY = 28;
+
+  ctx.beginPath();
+  ctx.moveTo(-220,-260);
+  ctx.lineTo(160,-300);
+  ctx.lineTo(255,-205);
+  ctx.lineTo(255,225);
+  ctx.lineTo(-130,290);
+  ctx.lineTo(-255,185);
+  ctx.lineTo(-255,-185);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.shadowColor = 'transparent';
+
+  ctx.fillStyle = '#f0f7ff';
+  ctx.beginPath();
+  ctx.moveTo(-220,-260);
+  ctx.lineTo(160,-300);
+  ctx.lineTo(255,-205);
+  ctx.lineTo(-130,-150);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.fillStyle = 'rgba(16,185,129,.08)';
+  ctx.beginPath();
+  ctx.moveTo(-130,-150);
+  ctx.lineTo(255,-205);
+  ctx.lineTo(255,225);
+  ctx.lineTo(-130,290);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.strokeStyle = 'rgba(13,31,60,.10)';
+  ctx.lineWidth = 4;
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+function drawMockupBase(){
+  if(currentTemplate === 'tshirt') drawTshirt();
+  if(currentTemplate === 'poster') drawPoster();
+  if(currentTemplate === 'banner') drawBanner();
+  if(currentTemplate === 'billboard') drawBillboard();
+  if(currentTemplate === 'card') drawCard();
+  if(currentTemplate === 'packaging') drawPackaging();
+}
+
+function drawDesign(){
+  if(!designImg) return;
+
+  ctx.save();
+  ctx.translate(design.x, design.y);
+  ctx.rotate(design.rotation * Math.PI / 180);
+  ctx.globalAlpha = design.opacity;
+
+  let baseWidth = 260;
+
+  if(currentTemplate === 'banner') baseWidth = 430;
+  if(currentTemplate === 'billboard') baseWidth = 420;
+  if(currentTemplate === 'poster') baseWidth = 330;
+  if(currentTemplate === 'card') baseWidth = 250;
+  if(currentTemplate === 'packaging') baseWidth = 260;
+  if(currentTemplate === 'tshirt') baseWidth = 280;
+
+  const ratio = designImg.height / designImg.width;
+  const w = baseWidth * design.scale;
+  const h = w * ratio;
+
+  ctx.drawImage(designImg, -w/2, -h/2, w, h);
+  ctx.restore();
+  ctx.globalAlpha = 1;
+}
+
+function render(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  drawMockupBase();
+  drawDesign();
+}
+
+function resetDesignPosition(){
+  design.x = canvas.width / 2;
+  design.y = canvas.height / 2;
+  design.scale = Number(scaleRange.value) / 100;
+  design.rotation = Number(rotateRange.value);
+  design.opacity = Number(opacityRange.value) / 100;
+
+  if(currentTemplate === 'tshirt'){
+    design.x = 600;
+    design.y = 455;
+  }
+  if(currentTemplate === 'poster'){
+    design.x = 600;
+    design.y = 450;
+  }
+  if(currentTemplate === 'banner'){
+    design.x = 600;
+    design.y = 450;
+  }
+  if(currentTemplate === 'billboard'){
+    design.x = 600;
+    design.y = 350;
+  }
+  if(currentTemplate === 'card'){
+    design.x = 600;
+    design.y = 450;
+  }
+  if(currentTemplate === 'packaging'){
+    design.x = 560;
+    design.y = 460;
+  }
+
+  render();
+}
+
+function updateControls(){
+  design.scale = Number(scaleRange.value) / 100;
+  design.rotation = Number(rotateRange.value);
+  design.opacity = Number(opacityRange.value) / 100;
+
+  scaleVal.textContent = scaleRange.value + '%';
+  rotateVal.textContent = rotateRange.value + '°';
+  opacityVal.textContent = opacityRange.value + '%';
+
+  render();
+}
+
+designInput.addEventListener('change', function(e){
+  const file = e.target.files && e.target.files[0];
+  if(!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(ev){
+    const img = new Image();
+    img.onload = function(){
+      designImg = img;
+      fileInfo.style.display = 'block';
+      fileName.textContent = file.name;
+      fileMeta.textContent = Math.round(file.size / 1024) + ' KB · uploaded';
+      resetDesignPosition();
+    };
+    img.src = ev.target.result;
+  };
+
+  reader.readAsDataURL(file);
+});
+
+document.querySelectorAll('.template-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.template-btn').forEach(function(x){
+      x.classList.remove('active');
+    });
+
+    btn.classList.add('active');
+    currentTemplate = btn.dataset.template;
+    templateName.textContent = templateLabels[currentTemplate] || currentTemplate;
+
+    resetDesignPosition();
+  });
+});
+
+scaleRange.addEventListener('input', updateControls);
+rotateRange.addEventListener('input', updateControls);
+opacityRange.addEventListener('input', updateControls);
+
+centerBtn.addEventListener('click', resetDesignPosition);
+
+resetBtn.addEventListener('click', function(){
+  scaleRange.value = 100;
+  rotateRange.value = 0;
+  opacityRange.value = 100;
+  updateControls();
+  resetDesignPosition();
+});
+
+downloadBtn.addEventListener('click', function(){
+  render();
+  const link = document.createElement('a');
+  link.download = 'ranzai-mockup.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+});
+
+canvas.addEventListener('mousedown', function(e){
+  const p = getPointer(e);
+  drag.active = true;
+  drag.startX = p.x;
+  drag.startY = p.y;
+  drag.originX = design.x;
+  drag.originY = design.y;
+});
+
+window.addEventListener('mousemove', function(e){
+  if(!drag.active) return;
+  const p = getPointer(e);
+  design.x = drag.originX + (p.x - drag.startX);
+  design.y = drag.originY + (p.y - drag.startY);
+  render();
+});
+
+window.addEventListener('mouseup', function(){
+  drag.active = false;
+});
+
+canvas.addEventListener('touchstart', function(e){
+  e.preventDefault();
+  const p = getPointer(e);
+  drag.active = true;
+  drag.startX = p.x;
+  drag.startY = p.y;
+  drag.originX = design.x;
+  drag.originY = design.y;
+},{passive:false});
+
+canvas.addEventListener('touchmove', function(e){
+  e.preventDefault();
+  if(!drag.active) return;
+  const p = getPointer(e);
+  design.x = drag.originX + (p.x - drag.startX);
+  design.y = drag.originY + (p.y - drag.startY);
+  render();
+},{passive:false});
+
+canvas.addEventListener('touchend', function(){
+  drag.active = false;
+});
+
+updateControls();
+resetDesignPosition();
+render();
+</script>
+</body>
+</html>
