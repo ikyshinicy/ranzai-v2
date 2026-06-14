@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Masuk — RanzAI</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/scripts/core/app.js"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/styles/pages/auth-login.css">
+</head>
+<body>
+
+<div class="mesh-bg"></div>
+<div class="grid-bg"></div>
+
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-box">
+    <div class="loading-spinner"></div>
+    Memeriksa sesi...
+  </div>
+</div>
+
+<div class="wrap" id="mainWrap" style="display:none;">
+
+  <div class="card">
+    <div class="card-body">
+
+      <a href="https://ranz-ai.com" class="logo">
+        <div class="logo-mark"><img src="/assets/icons/ranzai-logo.png" alt="RanzAI"/></div>
+        <span class="logo-name">RanzAI</span>
+      </a>
+
+      <h1 class="card-title">Masuk ke RanzAI</h1>
+      <p class="card-sub">Selamat datang kembali.</p>
+
+      <div class="alert alert-error"   id="alertError"></div>
+      <div class="alert alert-success" id="alertSuccess"></div>
+
+      <!-- Google -->
+      <button class="google-btn" type="button" id="googleBtn" onclick="loginWithGoogle()">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M17.64 9.2045c0-.6381-.0573-1.2518-.1636-1.8409H9v3.4814h4.8436c-.2086 1.125-.8427 2.0782-1.7959 2.7164v2.2581h2.9087c1.7018-1.5668 2.6836-3.874 2.6836-6.615z" fill="#4285F4"/>
+          <path d="M9 18c2.43 0 4.4673-.8059 5.9564-2.1805l-2.9087-2.2581c-.8059.54-1.8368.8591-3.0477.8591-2.3441 0-4.3282-1.5832-5.036-3.71H.9574v2.3318C2.4382 15.9832 5.4818 18 9 18z" fill="#34A853"/>
+          <path d="M3.964 10.71c-.18-.54-.2827-1.1168-.2827-1.71s.1027-1.17.2827-1.71V4.9582H.9574C.3477 6.1732 0 7.5477 0 9s.3477 2.8268.9574 4.0418L3.964 10.71z" fill="#FBBC05"/>
+          <path d="M9 3.5795c1.3214 0 2.5077.4541 3.4405 1.346l2.5813-2.5814C13.4627.8918 11.4255 0 9 0 5.4818 0 2.4382 2.0168.9574 4.9582L3.964 7.29C4.6718 5.1632 6.6559 3.5795 9 3.5795z" fill="#EA4335"/>
+        </svg>
+        Masuk dengan Google
+      </button>
+
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span class="divider-text">atau email</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Email -->
+      <div class="field">
+        <label class="field-label" for="emailInput">Email</label>
+        <input class="field-input" type="email" id="emailInput"
+          placeholder="kamu@email.com" autocomplete="email"/>
+      </div>
+
+      <!-- Password -->
+      <div class="field">
+        <label class="field-label" for="passInput">Password</label>
+        <div class="field-wrap">
+          <input class="field-input has-eye" type="password" id="passInput"
+            placeholder="Password kamu"
+            autocomplete="current-password"
+            onkeydown="if(event.key==='Enter')handleLogin()"/>
+          <button class="eye-btn" type="button" onclick="toggleEye()" title="Lihat password">
+            <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <a href="#" class="forgot-link" onclick="openForgot(event)">Lupa password?</a>
+
+      <div class="turnstile-wrap">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAADhBXvYRGkvBLm_8"
+          data-callback="onTurnstileSuccess" data-theme="light"></div>
+      </div>
+
+      <button class="submit-btn" type="button" id="submitBtn" onclick="handleLogin()">
+        <div class="spinner" id="spinner"></div>
+        <span id="submitText">Masuk</span>
+      </button>
+
+    </div>
+  </div>
+
+  <div class="register-hint">
+    Belum punya akun? <a href="/register">Daftar sekarang</a>
+  </div>
+
+</div>
+
+<!-- Forgot Password Modal -->
+<div class="modal-overlay" id="forgotModal" style="display:none;">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeForgot()">×</button>
+    <h2 class="modal-title">Reset Password</h2>
+    <p class="modal-sub">Masukkan email kamu. Kami akan kirim link untuk reset password.</p>
+    <div class="alert alert-error"   id="forgotError"></div>
+    <div class="alert alert-success" id="forgotSuccess"></div>
+    <div class="field">
+      <label class="field-label" for="forgotEmail">Email</label>
+      <input class="field-input" type="email" id="forgotEmail"
+        placeholder="kamu@email.com"
+        onkeydown="if(event.key==='Enter')sendReset()"/>
+    </div>
+    <button class="modal-btn" id="resetBtn" onclick="sendReset()">Kirim Link Reset</button>
+  </div>
+</div>
+
+<script src="/scripts/pages/auth-login.js"></script>
+</body>
+</html>

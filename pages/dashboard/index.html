@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<title>Dashboard — RanzAI</title>
+
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/styles/pages/dashboard.css">
+<link rel="stylesheet" href="/styles/tools/shared.css"/>
+<link rel="stylesheet" href="/styles/tools/design.css" media="print" onload="this.media='all'"/>
+<link rel="stylesheet" href="/styles/pages/payment.css" media="print" onload="this.media='all'"/>
+<link rel="stylesheet" href="/styles/fixes/cursor.css" media="print" onload="this.media='all'"/>
+<link rel="stylesheet" href="/styles/tools/doc.css" media="print" onload="this.media='all'"/>
+<link rel="stylesheet" href="/styles/tools/vector.css" media="print" onload="this.media='all'">
+
+
+
+
+<link rel="stylesheet" href="/styles/pages/dashboard-inline.css">
+</head>
+
+<body>
+<div class="mesh-bg"></div>
+<div class="grid-bg"></div>
+
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-box">
+    <div class="spinner"></div>
+    <span data-i18n="loading">Loading dashboard...</span>
+  </div>
+</div>
+
+<div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <a href="/dashboard" class="sidebar-logo">
+      <div class="logo-mark">
+        <img src="/assets/icons/ranzai-logo.png" alt="RanzAI" width="34" height="34"/>
+      </div>
+      <span>RanzAI</span>
+    </a>
+
+    <nav class="sidebar-section">
+      <a href="/dashboard" data-dashboard-home class="sidebar-link active" id="sidebar-home">
+        <span class="sidebar-icon">⌂</span>
+        <span data-i18n="nav_dashboard">Dashboard</span>
+      </a>
+
+      <div class="sidebar-category" data-i18n="nav_tools">Tools</div>
+
+      <div class="sidebar-tools">
+        <button type="button" data-tool="breakdown" class="sidebar-tool" id="tool-btn-breakdown">
+          <span class="sidebar-icon">⌕</span>
+          <span>Breakdown</span>
+        </button>
+        <button type="button" data-tool="design" class="sidebar-tool" id="tool-btn-design">
+          <span class="sidebar-icon">◌</span>
+          <span>Design</span>
+        </button>
+        <button type="button" data-tool="write" class="sidebar-tool" id="tool-btn-write">
+          <span class="sidebar-icon">✎</span>
+          <span>Write</span>
+        </button>
+        <button type="button" data-tool="gel" class="sidebar-tool" id="tool-btn-gel">
+          <span class="sidebar-icon">✦</span>
+          <span>Gel</span>
+        </button>
+        <button type="button" data-tool="cut" class="sidebar-tool" id="tool-btn-cut">
+          <span class="sidebar-icon">⌘</span>
+          <span>Cut</span>
+        </button>
+        <button type="button" data-tool="convert" class="sidebar-tool" id="tool-btn-convert">
+          <span class="sidebar-icon">▣</span>
+          <span>Convert</span>
+        </button>
+        <button type="button" data-tool="doc" class="sidebar-tool" id="tool-btn-doc">
+          <span class="sidebar-icon">≡</span>
+          <span>Doc</span>
+        </button>
+        <button type="button" data-tool="vector" class="sidebar-tool" id="tool-btn-vector">
+          <span class="sidebar-icon">◭</span>
+          <span>Vector</span>
+        </button>
+      </div>
+
+      <div class="sidebar-category" data-i18n="nav_account">Account</div>
+
+      <a href="/dashboard#payment" class="sidebar-link" data-tool="payment" id="tool-btn-payment">
+        <span class="sidebar-icon">▰</span>
+        <span data-i18n="nav_payment">Payment</span>
+      </a>
+
+      <a href="/dashboard#support" class="sidebar-link" data-tool="support" id="tool-btn-support">
+        <span class="sidebar-icon">☎</span>
+        <span data-i18n="nav_contact">Support</span>
+      </a>
+
+      <a href="/privacy" class="sidebar-link">
+        <span class="sidebar-icon">⚖</span>
+        <span data-i18n="nav_policy">Policy</span>
+      </a>
+
+      <a href="/terms" class="sidebar-link">
+        <span class="sidebar-icon">§</span>
+        <span data-i18n="nav_terms">Terms</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-coin-card">
+        <div class="sidebar-coin-top">
+          <div class="sidebar-coin-icon">
+            <img src="/assets/icons/r-coin.png" alt="Ranz Coin" class="sidebar-coin-img"/>
+          </div>
+          <span class="sidebar-coin-label">Ranz Coin</span>
+        </div>
+        <div class="sidebar-coin-balance" id="sidebarCoinBalance">—</div>
+        <a href="/dashboard#payment" class="sidebar-coin-topup" data-tool="payment" data-i18n="topup_btn">+ Top Up</a>
+      </div>
+
+      <div class="sidebar-rza-id">
+        <span class="sidebar-rza-label" data-i18n="account_id">Account ID</span>
+        <span class="sidebar-rza-value" id="sidebarRzaId">—</span>
+      </div>
+
+      <div class="sidebar-user">
+        <div class="user-row">
+          <span class="user-dot"></span>
+          <span class="user-email" id="userEmail">user@email.com</span>
+        </div>
+      </div>
+
+      <button class="logout-btn" type="button" onclick="logoutUser()" data-i18n="logout">Logout</button>
+    </div>
+  </aside>
+
+  <section class="main-area">
+    <header class="topbar">
+      <button class="mobile-menu-btn" type="button" onclick="openSidebar()">☰</button>
+      <div class="topbar-title" id="topbarTitle" data-i18n="topbar_title">User Dashboard</div>
+      <div class="topbar-right">
+        <div class="topbar-badge">
+          <span class="topbar-badge-dot"></span>
+          <span data-i18n="workspace_active">Workspace Active</span>
+        </div>
+
+        <div class="lang-switcher" aria-label="Language switcher">
+          <button class="lang-btn active" id="lang-en" type="button" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" id="lang-id" type="button" onclick="setLang('id')">ID</button>
+        </div>
+
+        <button class="tutorial-open-btn" type="button" onclick="openTutorial()" data-i18n="tutorial_open_btn">Guide</button>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="view active" id="view-home">
+        <section class="hero">
+          <div class="welcome-card">
+            <div class="badge">
+              <span class="badge-dot"></span>
+              <span data-i18n="badge_user_dashboard">User Dashboard</span>
+            </div>
+
+            <h1 class="welcome-title">
+              <span data-i18n="welcome_title_line1">Welcome to</span><br>
+              <span>RanzAI Workspace</span>
+            </h1>
+
+            <p class="welcome-sub" data-i18n="welcome_sub">
+              All RanzAI tools are accessible from this dashboard. Select a tool from the left sidebar to start working.
+            </p>
+
+            <div class="dev-notice" data-i18n="dev_notice">
+              RanzAI is still in active development. Tools are usable, but some features are still being refined.
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div>
+              <div class="status-top">
+                <div class="status-title" data-i18n="account_status">Account Status</div>
+                <div class="plan-badge">FREE</div>
+              </div>
+
+              <div class="status-credit-row">
+                <img src="/assets/icons/r-coin.png" alt="Ranz Coin" class="status-coin-img"/>
+                <div>
+                  <div class="credit-line">
+                    <span class="credit-number" id="creditNumber">0</span>
+                    <span class="credit-unit">coin</span>
+                  </div>
+                  <div class="credit-label" data-i18n="coin_available">Ranz Coin available</div>
+                </div>
+              </div>
+            </div>
+
+            <a href="/dashboard#payment" class="upgrade-btn" data-tool="payment" data-i18n="topup_coin_btn">+ Top Up Ranz Coin</a>
+          </div>
+        </section>
+
+        <section class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">⚡</div>
+            <div>
+              <div class="stat-value" id="statTotalGenerate">0</div>
+              <div class="stat-label" data-i18n="stat_total_generate">Total generates</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">◈</div>
+            <div>
+              <div class="stat-value">8</div>
+              <div class="stat-label" data-i18n="stat_tools_available">Tools available</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">◷</div>
+            <div>
+              <div class="stat-value" id="statLastTool">—</div>
+              <div class="stat-label" data-i18n="stat_last_tool">Last tool used</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">✓</div>
+            <div>
+              <div class="stat-value" data-i18n="stat_active">Active</div>
+              <div class="stat-label" data-i18n="stat_workspace_status">Workspace status</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="main-grid">
+          <div class="panel" id="tools">
+            <div class="panel-head">
+              <div>
+                <div class="panel-title" data-i18n="panel_tools_title">Select Tools</div>
+                <div class="panel-sub" data-i18n="panel_tools_sub">Access all RanzAI products directly from the dashboard.</div>
+              </div>
+            </div>
+
+            <div class="tools-grid">
+              <button type="button" data-tool="breakdown" class="tool-card">
+                <div class="tool-icon">⌕</div>
+                <div>
+                  <div class="tool-name">RanzAI Breakdown</div>
+                  <div class="tool-desc" data-i18n="tool_breakdown_desc">Analyze images into detailed prompts.</div>
+                </div>
+              </button>
+
+              <button type="button" data-tool="design" class="tool-card">
+                <div class="tool-icon">◌</div>
+                <div>
+                  <div class="tool-name">RanzAI Design</div>
+                  <div class="tool-desc" data-i18n="tool_design_desc">Generate design briefs for banners and posters.</div>
+                </div>
+              </button>
+
+              <button type="button" data-tool="write" class="tool-card">
+                <div class="tool-icon">✎</div>
+                <div>
+                  <div class="tool-name">RanzAI Write</div>
+                  <div class="tool-desc" data-i18n="tool_write_desc">Convert document photos into text.</div>
+                </div>
+              </button>
+
+              <button type="button" data-tool="gel" class="tool-card">
+                <div class="tool-icon">✦</div>
+                <div>
+                  <div class="tool-name">RanzAI Gel</div>
+                  <div class="tool-desc" data-i18n="tool_gel_desc">Enhance and sharpen portrait photos.</div>
+                </div>
+              </button>
+
+              <button type="button" data-tool="cut" class="tool-card">
+                <div class="tool-icon">⌘</div>
+                <div>
+                  <div class="tool-name">RanzAI Cut</div>
+                  <div class="tool-desc" data-i18n="tool_cut_desc">Remove photo backgrounds automatically.</div>
+                </div>
+              </button>
+
+              <button type="button" data-tool="convert" class="tool-card">
+                <div class="tool-icon">▣</div>
+                <div>
+                  <div class="tool-name">RanzAI Convert</div>
+                  <div class="tool-desc" data-i18n="tool_convert_desc">Convert files to any format you need.</div>
+                </div>
+              </button>
+
+              <button type="button" data-tool="doc" class="tool-card">
+                <div class="tool-icon">≡</div>
+                <div>
+                  <div class="tool-name">RanzAI Doc</div>
+                  <div class="tool-desc" data-i18n="tool_doc_desc">Generate surat, proposal, dan kontrak profesional.</div>
+                </div>
+              </button>
+
+              <button type="button" data-tool="vector" class="tool-card">
+                <div class="tool-icon">◭</div>
+                <div>
+                  <div class="tool-name">RanzAI Vector</div>
+                  <div class="tool-desc" data-i18n="tool_vector_desc">Convert any image into a clean vector-style PNG.</div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <div class="panel-title" data-i18n="panel_history_title">History</div>
+                <div class="panel-sub" data-i18n="panel_history_sub">Your recent account activity.</div>
+              </div>
+            </div>
+
+            <div class="activity-list" id="activityList">
+              <div class="loading-box" style="padding:1.5rem 0; background:none; box-shadow:none;">
+                <div class="spinner"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="view-tool">
+        <div class="tool-view-wrap">
+          <div class="tool-loading" id="toolLoading">
+            <div class="loading-box">
+              <div class="spinner"></div>
+              <span data-i18n="loading_tool">Loading tool...</span>
+            </div>
+          </div>
+
+          <div id="tool-container"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="/dashboard" class="footer-logo">
+        <div class="logo-mark">
+          <img src="/assets/icons/ranzai-logo.png" alt="RanzAI" width="34" height="34"/>
+        </div>
+        RanzAI
+      </a>
+
+      <div class="footer-copy">Dashboard · © 2026 RanzAI</div>
+
+      <div class="footer-engine">
+        <span class="footer-engine-dot"></span>
+        Powered by Engine RanzAI
+      </div>
+    </footer>
+  </section>
+</div>
+
+<div class="tutorial-modal" id="tutorialModal" aria-hidden="true">
+  <div class="tutorial-modal-backdrop" onclick="closeTutorial()"></div>
+  <section class="tutorial-dialog" role="dialog" aria-modal="true" aria-labelledby="tutorialTitle">
+    <div class="tutorial-dialog-head">
+      <div>
+        <div class="tutorial-kicker" data-i18n="tutorial_kicker">Workspace Guide</div>
+        <h2 class="tutorial-dialog-title" id="tutorialTitle" data-i18n="tutorial_title">RanzAI Quick Tutorial</h2>
+      </div>
+      <button class="tutorial-close-btn" type="button" onclick="closeTutorial()" aria-label="Close">×</button>
+    </div>
+
+    <div class="tutorial-tabs" role="tablist">
+      <button class="tutorial-tab active" type="button" data-tutorial-tab="dashboard" onclick="setTutorialTab('dashboard')" data-i18n="tab_dashboard">Dashboard</button>
+      <button class="tutorial-tab" type="button" data-tutorial-tab="tools" onclick="setTutorialTab('tools')" data-i18n="tab_tools">Tools</button>
+      <button class="tutorial-tab" type="button" data-tutorial-tab="payment" onclick="setTutorialTab('payment')" data-i18n="tab_payment">Payment</button>
+    </div>
+
+    <div class="tutorial-panels">
+      <div class="tutorial-panel active" data-tutorial-panel="dashboard">
+        <div class="tutorial-panel-icon">⌂</div>
+        <h3 data-i18n="tutorial_dashboard_title">Understand your dashboard</h3>
+        <p data-i18n="tutorial_dashboard_desc">Use the dashboard to monitor your account status, Ranz Coin balance, available tools, and latest activity.</p>
+        <ul>
+          <li data-i18n="tutorial_dashboard_li1">Check your Ranz Coin balance in the account card or sidebar.</li>
+          <li data-i18n="tutorial_dashboard_li2">Use the history panel to review recent top-ups and tool usage.</li>
+          <li data-i18n="tutorial_dashboard_li3">Open tools directly without leaving the workspace.</li>
+        </ul>
+      </div>
+
+      <div class="tutorial-panel" data-tutorial-panel="tools">
+        <div class="tutorial-panel-icon">◈</div>
+        <h3 data-i18n="tutorial_tools_title">Choose and run tools</h3>
+        <p data-i18n="tutorial_tools_desc">Select any RanzAI tool from the sidebar or the tools panel. Each tool opens inside this dashboard.</p>
+        <ul>
+          <li data-i18n="tutorial_tools_li1">Breakdown turns an image into a detailed prompt.</li>
+          <li data-i18n="tutorial_tools_li2">Design, Write, Gel, Cut, Convert, and Mockup each have different usage costs.</li>
+          <li data-i18n="tutorial_tools_li3">Upload or enter the required input, generate, then download the result.</li>
+        </ul>
+      </div>
+
+      <div class="tutorial-panel" data-tutorial-panel="payment">
+        <div class="tutorial-panel-icon">▰</div>
+        <h3 data-i18n="tutorial_payment_title">Top up Ranz Coin</h3>
+        <p data-i18n="tutorial_payment_desc">Open Payment, choose a package, and complete the payment. Your coin balance updates automatically after a successful transaction.</p>
+        <ul>
+          <li data-i18n="tutorial_payment_li1">Click Top Up from the sidebar or account card.</li>
+          <li data-i18n="tutorial_payment_li2">Complete payment through the available payment link.</li>
+          <li data-i18n="tutorial_payment_li3">Return to the dashboard and wait for the realtime balance update.</li>
+        </ul>
+        <button type="button" class="tutorial-primary-btn" data-tool="payment" onclick="closeTutorial()" data-i18n="tutorial_payment_cta">Go to Payment</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/scripts/core/app.js"></script>
+<script src="/scripts/core/i18n.js"></script>
+<script src="/scripts/core/view.js"></script>
+
+<script src="/scripts/pages/dashboard-inline.js"></script>
+
+<!-- ═══════════════════════════════════════
+     ONBOARDING TOUR
+═══════════════════════════════════════ -->
+<div class="tour-backdrop" id="tourBackdrop"></div>
+<div class="tour-popup" id="tourPopup" aria-live="polite">
+  <button class="tour-skip" id="tourSkip" type="button">Skip</button>
+
+  <div class="tour-steps-wrap" id="tourStepsWrap">
+
+    <!-- Step 1 -->
+    <div class="tour-step active" data-step="1">
+      <div class="tour-step-icon">👋</div>
+      <div class="tour-step-badge" data-i18n="tour_badge_welcome">Welcome</div>
+      <div class="tour-step-title" data-i18n="tour1_title">Welcome to RanzAI Workspace!</div>
+      <div class="tour-step-desc" data-i18n="tour1_desc">This is your personal dashboard. All AI tools are accessible from here. Let us walk you through the basics in a few quick steps.</div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="tour-step" data-step="2">
+      <div class="tour-step-icon">▰</div>
+      <div class="tour-step-badge" data-i18n="tour_badge_coin">Step 1 of 4</div>
+      <div class="tour-step-title" data-i18n="tour2_title">Top Up Ranz Coin First</div>
+      <div class="tour-step-desc" data-i18n="tour2_desc">Every tool uses Ranz Coin per generation. Go to <strong>Payment</strong> in the sidebar, pick a package, and pay via Mayar ID. Coins are credited automatically.</div>
+      <a href="/dashboard#payment" class="tour-inline-btn" data-tool="payment" onclick="endTour()" data-i18n="tour2_cta">Open Payment →</a>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="tour-step" data-step="3">
+      <div class="tour-step-icon">🛠️</div>
+      <div class="tour-step-badge" data-i18n="tour_badge_tools">Step 2 of 4</div>
+      <div class="tour-step-title" data-i18n="tour3_title">Pick a Tool from the Sidebar</div>
+      <div class="tour-step-desc" data-i18n="tour3_desc">Use the left sidebar to open any tool — <strong>Breakdown, Design, Write, Gel, Cut, Convert, Mockup</strong>. Each tool opens in the main area without leaving this page.</div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="tour-step" data-step="4">
+      <div class="tour-step-icon">⚡</div>
+      <div class="tour-step-badge" data-i18n="tour_badge_generate">Step 3 of 4</div>
+      <div class="tour-step-title" data-i18n="tour4_title">Generate & Download</div>
+      <div class="tour-step-desc" data-i18n="tour4_desc">Upload your file or fill in the input, then click <strong>Generate</strong>. Coins are deducted per use (1–5 coins). Download your result directly from the tool panel.</div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="tour-step" data-step="5">
+      <div class="tour-step-icon">✅</div>
+      <div class="tour-step-badge" data-i18n="tour_badge_done">You're all set</div>
+      <div class="tour-step-title" data-i18n="tour5_title">You're Ready to Go!</div>
+      <div class="tour-step-desc" data-i18n="tour5_desc">That's all you need to know. Start with a Top Up, pick a tool, and create something amazing. You can revisit the guide anytime from the dashboard.</div>
+    </div>
+
+  </div>
+
+  <div class="tour-footer">
+    <div class="tour-dots" id="tourDots"></div>
+    <div class="tour-nav">
+      <button class="tour-btn-prev" id="tourPrev" type="button" data-i18n="tour_prev">← Back</button>
+      <button class="tour-btn-next" id="tourNext" type="button" data-i18n="tour_next">Next →</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="/scripts/ui/cs-widget.js" defer></script>
+</body>
+</html>

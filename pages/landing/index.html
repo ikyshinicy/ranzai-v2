@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="google-site-verification" content="a_HIlFMnsp7jTSTQn722J888JcJ3SutwWGdhxnp8ATE" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!-- SEO -->
+<title>Ranz AI — Platform AI Kreatif untuk Desain, Teks, Foto & Dokumen</title>
+<meta name="description" content="Ranz AI adalah platform AI kreatif all-in-one untuk desainer, kreator konten, dan pelaku UMKM Indonesia. Generate desain, hapus background, perjelas foto, konversi file, dan lebih banyak lagi — mulai Rp30.000."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://ranz-ai.com/"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://ranz-ai.com/"/>
+<meta property="og:title" content="Ranz AI — Platform AI Kreatif Indonesia"/>
+<meta property="og:description" content="Satu platform AI untuk desain, teks, foto, dokumen, dan mockup. Dibuat untuk kreator dan UMKM Indonesia. Mulai dari Rp30.000."/>
+<meta property="og:image" content="https://ranz-ai.com/assets/icons/ranzai-logo.png"/>
+<meta property="og:locale" content="id_ID"/>
+<meta property="og:site_name" content="Ranz AI"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Ranz AI — Platform AI Kreatif Indonesia"/>
+<meta name="twitter:description" content="Satu platform AI untuk desain, teks, foto, dokumen, dan mockup. Dibuat untuk kreator dan UMKM Indonesia."/>
+<meta name="twitter:image" content="https://ranz-ai.com/assets/icons/ranzai-logo.png"/>
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Ranz AI",
+  "url": "https://ranz-ai.com",
+  "description": "Platform AI kreatif all-in-one untuk desainer, kreator konten, dan pelaku UMKM Indonesia.",
+  "applicationCategory": "DesignApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "30000",
+    "priceCurrency": "IDR"
+  }
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-59Q19Q3EPE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-59Q19Q3EPE');
+</script>
+
+<link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+
+
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/styles/pages/landing.css">
+</head>
+<body class="lang-id">
+
+<div class="mesh-bg"></div>
+<div class="grid-bg"></div>
+
+<!-- SOCIAL PROOF -->
+<div class="social-proof" aria-live="polite">
+  <div class="proof-card" id="proofCard">
+    <div class="proof-avatar" id="proofAvatar">R</div>
+    <div class="proof-main">
+      <div class="proof-name" id="proofName">ranzai******@gmail.com</div>
+      <div class="proof-action">Baru top-up saldo <strong id="proofAmount">Rp50.000</strong></div>
+      <div class="proof-verify">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M8 1.5l5 2v3.7c0 3.1-2 5.9-5 7.1-3-1.2-5-4-5-7.1V3.5l5-2z" fill="currentColor" opacity=".18"/><path d="M5.3 8.1l1.7 1.7 3.8-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Verified by Mayar ID
+      </div>
+    </div>
+    <div class="proof-time" id="proofTime">baru saja</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-mark"><img src="/assets/icons/ranzai-logo.png" alt="RanzAI"/></div>
+    RanzAI
+  </a>
+  <div class="nav-links">
+    <a href="#features"><span class="id">Fitur</span><span class="en">Features</span></a>
+    <a href="#price"><span class="id">Harga</span><span class="en">Pricing</span></a>
+    <a href="#how"><span class="id">Cara Kerja</span><span class="en">How It Works</span></a>
+    <a href="#faq">FAQ</a>
+    <a href="/tools"><span class="id">Tools</span><span class="en">Tools</span></a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button onclick="setLang('id')">ID</button>
+      <button onclick="setLang('en')">EN</button>
+    </div>
+    <a href="/register" class="btn btn-primary">
+      <span class="id">Mulai Gratis</span>
+      <span class="en">Get Started</span>
+    </a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Buka menu" onclick="toggleDrawer()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="nav-drawer" id="navDrawer">
+  <a href="#features" onclick="closeDrawer()"><span class="id">Fitur</span><span class="en">Features</span></a>
+  <a href="#price" onclick="closeDrawer()"><span class="id">Harga</span><span class="en">Pricing</span></a>
+  <a href="#how" onclick="closeDrawer()"><span class="id">Cara Kerja</span><span class="en">How It Works</span></a>
+  <a href="#faq" onclick="closeDrawer()">FAQ</a>
+  <a href="/tools" onclick="closeDrawer()"><span class="id">Tools</span><span class="en">Tools</span></a>
+  <div class="nav-drawer-divider"></div>
+  <div class="nav-drawer-bottom">
+    <div class="lang-toggle">
+      <button onclick="setLang('id')">ID</button>
+      <button onclick="setLang('en')">EN</button>
+    </div>
+    <a href="/register" class="btn btn-primary">
+      <span class="id">Mulai Gratis</span>
+      <span class="en">Get Started</span>
+    </a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge reveal">
+    <svg viewBox="0 0 16 16" fill="none"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z" fill="currentColor"/></svg>
+    <span class="id">Platform AI Kreatif Indonesia</span>
+    <span class="en">Indonesia's AI Creative Platform</span>
+  </div>
+  <h1 class="hero-title reveal reveal-delay-1">
+    <span class="id">Satu Platform.<br><span class="accent">Kreativitas Tanpa Batas.</span></span>
+    <span class="en">One Platform.<br><span class="accent">Limitless Creativity.</span></span>
+  </h1>
+  <p class="hero-sub reveal reveal-delay-2">
+    <span class="id">Buat desain, tulis konten, perbesar gambar, hapus background, konversi file, dan buat mockup produk profesional — semua dengan AI.</span>
+    <span class="en">Create designs, write content, upscale images, remove backgrounds, convert files, and build professional product mockups — all with AI.</span>
+  </p>
+  <div class="hero-actions reveal reveal-delay-3">
+    <a href="/register" class="btn-hero-primary">
+      <span class="id">Mulai Gratis →</span>
+      <span class="en">Get Started →</span>
+    </a>
+    <a href="#price" class="btn-hero-outline">
+      <span class="id">Lihat Harga</span>
+      <span class="en">View Pricing</span>
+    </a>
+  </div>
+  <div class="hero-stats reveal reveal-delay-4">
+    <div class="hero-stat">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M8 1l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="currentColor"/></svg>
+      <span>99.9% Uptime</span>
+    </div>
+    <div class="hero-stat">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M8 1l1.8 5.5H15l-4.9 3.6 1.9 5.5L8 12.1l-4 3.5 1.9-5.5L1 6.5h5.2z" fill="currentColor"/></svg>
+      <span><span class="id">4.9/5 Pengguna</span><span class="en">4.9/5 Users</span></span>
+    </div>
+    <div class="hero-stat">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M2 13V6l6-4 6 4v7H2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 13V9h4v4" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      <span>10K+ <span class="id">Karya Dibuat</span><span class="en">Works Created</span></span>
+    </div>
+  </div>
+
+  <!-- DASHBOARD MOCKUP -->
+  <div class="mockup-wrap reveal reveal-delay-4">
+    <div class="mockup-browser">
+      <div class="mockup-bar">
+        <div class="mockup-dots">
+          <div class="mockup-dot r"></div>
+          <div class="mockup-dot y"></div>
+          <div class="mockup-dot g"></div>
+        </div>
+        <div class="mockup-url">app.ranz-ai.com</div>
+      </div>
+      <div class="mockup-body">
+        <div class="mockup-sidebar">
+          <div class="mockup-sidebar-label">Tools</div>
+          <div class="mockup-tool-item active">
+            <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Design
+          </div>
+          <div class="mockup-tool-item">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 13l2-2 7-7 2 2-7 7-2-1z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Write
+          </div>
+          <div class="mockup-tool-item">
+            <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 8l1.5 1.5L10 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            GEL
+          </div>
+          <div class="mockup-tool-item">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Cut
+          </div>
+          <div class="mockup-tool-item">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Convert
+          </div>
+          <div class="mockup-tool-item">
+            <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="4" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="currentColor" stroke-width="1.5"/></svg>
+            Mockup
+          </div>
+          <div class="mockup-coin">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v6M6 7h3a1 1 0 010 2H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            +24 Ranz Coin
+          </div>
+        </div>
+        <div class="mockup-main">
+          <div class="mockup-prompt">
+            <span><span class="id">Buat poster promosi kafe Tropical Brew, vibes neon — siap dalam 4 detik</span><span class="en">Create neon-vibes promo poster for Tropical Brew cafe — ready in 4 seconds</span></span>
+            <div class="mockup-ai-badge">AI</div>
+          </div>
+          <div class="mockup-grid">
+            <div class="mockup-card">
+              <div class="mockup-card-icon" style="background:rgba(26,107,255,.1);">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="3" stroke="#1a6bff" stroke-width="1.5"/><path d="M5 8h6M8 5v6" stroke="#1a6bff" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <div class="mockup-card-name">RanzAI Design</div>
+              <div class="mockup-card-sub"><span class="id">12 tugas bulan ini</span><span class="en">12 tasks this month</span></div>
+              <div class="mockup-card-bar" style="background:linear-gradient(90deg,#1a6bff,#00d4c8);width:70%;"></div>
+            </div>
+            <div class="mockup-card">
+              <div class="mockup-card-icon" style="background:rgba(168,85,247,.1);">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 13l2-2 7-7 2 2-7 7-2-1z" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="mockup-card-name">RanzAI Write</div>
+              <div class="mockup-card-sub"><span class="id">8 tugas bulan ini</span><span class="en">8 tasks this month</span></div>
+              <div class="mockup-card-bar" style="background:linear-gradient(90deg,#a855f7,#ec4899);width:50%;"></div>
+            </div>
+            <div class="mockup-card">
+              <div class="mockup-card-icon" style="background:rgba(34,229,160,.1);">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#22e5a0" stroke-width="1.5"/><path d="M5.5 8l1.5 1.5L10 6" stroke="#22e5a0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="mockup-card-name">RanzAI GEL</div>
+              <div class="mockup-card-sub"><span class="id">12 tugas bulan ini</span><span class="en">12 tasks this month</span></div>
+              <div class="mockup-card-bar" style="background:linear-gradient(90deg,#22e5a0,#00d4c8);width:65%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-section">
+  <div class="trust-label reveal"><span class="id">Dipercaya oleh komunitas yang terus berkembang</span><span class="en">Trusted by a growing community</span></div>
+  <div class="trust-grid">
+    <div class="trust-card reveal reveal-delay-1">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.8"/><path d="M8 12l2 2 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="trust-name">AI Powered</div>
+        <div class="trust-desc"><span class="id">Model AI generasi terbaru</span><span class="en">Latest generation AI model</span></div>
+      </div>
+    </div>
+    <div class="trust-card reveal reveal-delay-2">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h8l-1 8 9-12h-8z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="trust-name"><span class="id">Proses Cepat</span><span class="en">Fast Processing</span></div>
+        <div class="trust-desc"><span class="id">Hasil dalam hitungan detik</span><span class="en">Results in seconds</span></div>
+      </div>
+    </div>
+    <div class="trust-card reveal reveal-delay-3">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v5c0 5-3 9-7 11C5 19 2 15 2 10V5l10-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="trust-name"><span class="id">Pembayaran Aman</span><span class="en">Secure Payment</span></div>
+        <div class="trust-desc"><span class="id">Gateway tersertifikasi</span><span class="en">Certified gateway</span></div>
+      </div>
+    </div>
+    <div class="trust-card reveal reveal-delay-4">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <div class="trust-name"><span class="id">Komunitas Tumbuh</span><span class="en">Growing Community</span></div>
+        <div class="trust-desc"><span class="id">Ribuan kreator aktif</span><span class="en">Thousands of active creators</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES / TOOLS -->
+<section class="features-section" id="features">
+  <div class="reveal">
+    <div class="section-eyebrow"><span class="id">Fitur Lengkap</span><span class="en">Full Features</span></div>
+    <h2 class="section-heading">
+      <span class="id">Tujuh alat AI<br>dalam satu platform.</span>
+      <span class="en">Seven AI tools<br>in one platform.</span>
+    </h2>
+    <p class="section-sub-text">
+      <span class="id">Dirancang untuk content creator, desainer, pelaku UMKM, mahasiswa, dan freelancer Indonesia.</span>
+      <span class="en">Designed for content creators, designers, SMB owners, students, and freelancers.</span>
+    </p>
+  </div>
+  <div class="tools-grid">
+
+    <!-- Breakdown -->
+    <div class="tool-card reveal reveal-delay-1">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:rgba(26,107,255,.1);">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#1a6bff" stroke-width="1.8"/><path d="M21 21l-4.35-4.35" stroke="#1a6bff" stroke-width="1.8" stroke-linecap="round"/><path d="M11 8v6M8 11h6" stroke="#1a6bff" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <span class="tool-tag" style="color:var(--blue);">Breakdown</span>
+      </div>
+      <div class="tool-name">RanzAI Breakdown</div>
+      <p class="tool-desc"><span class="id">Upload gambar dan ubah menjadi prompt detail siap pakai untuk berbagai platform AI.</span><span class="en">Upload an image and turn it into a detailed prompt ready for multiple AI platforms.</span></p>
+      <div class="tool-divider"></div>
+      <a href="/login" class="tool-cta"><span class="id">Coba sekarang</span><span class="en">Try now</span> <svg viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+
+    <!-- Design -->
+    <div class="tool-card reveal reveal-delay-2">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:rgba(0,212,200,.1);">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#00d4c8" stroke-width="1.8"/><path d="M8 12h8M12 8v8" stroke="#00d4c8" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <span class="tool-tag" style="color:var(--cyan);">Design</span>
+      </div>
+      <div class="tool-name">RanzAI Design</div>
+      <p class="tool-desc"><span class="id">Buat brief dan generate desain untuk banner, poster, spanduk, dan konten visual profesional.</span><span class="en">Create briefs and generate designs for banners, posters, and professional visual content.</span></p>
+      <div class="tool-divider"></div>
+      <a href="/login" class="tool-cta"><span class="id">Coba sekarang</span><span class="en">Try now</span> <svg viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+
+    <!-- Write -->
+    <div class="tool-card reveal reveal-delay-3">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:rgba(168,85,247,.1);">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 17L17 3l4 4L9 21H3v-4z" stroke="#a855f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="tool-tag" style="color:#a855f7;">Write</span>
+      </div>
+      <div class="tool-name">RanzAI Write</div>
+      <p class="tool-desc"><span class="id">Upload foto dokumen atau catatan, lalu ubah menjadi teks rapi dalam hitungan detik.</span><span class="en">Upload document or note photos and turn them into clean text in seconds.</span></p>
+      <div class="tool-divider"></div>
+      <a href="/login" class="tool-cta"><span class="id">Coba sekarang</span><span class="en">Try now</span> <svg viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+
+    <!-- GEL -->
+    <div class="tool-card reveal reveal-delay-1">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:rgba(14,165,233,.1);">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#0ea5e9" stroke-width="1.8"/><path d="M6 20v-1a6 6 0 0112 0v1" stroke="#0ea5e9" stroke-width="1.8" stroke-linecap="round"/><path d="M17 11l1.5 1.5L22 9" stroke="#0ea5e9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="tool-tag" style="color:#0ea5e9;">GEL</span>
+      </div>
+      <div class="tool-name">RanzAI GEL</div>
+      <p class="tool-desc"><span class="id">Perjelas foto wajah buram atau resolusi rendah — enhance hingga 8× lebih tajam dan jernih.</span><span class="en">Enhance blurry or low-resolution face photos — up to 8× sharper and clearer.</span></p>
+      <div class="tool-divider"></div>
+      <a href="/login" class="tool-cta"><span class="id">Coba sekarang</span><span class="en">Try now</span> <svg viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+
+    <!-- Cut -->
+    <div class="tool-card reveal reveal-delay-2">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:rgba(124,106,255,.1);">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="6" cy="6" r="2.5" stroke="#7c6aff" stroke-width="1.8"/><circle cx="6" cy="18" r="2.5" stroke="#7c6aff" stroke-width="1.8"/><path d="M8.5 6.5l11 11M8.5 17.5l5-5" stroke="#7c6aff" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <span class="tool-tag" style="color:#7c6aff;">Cut</span>
+      </div>
+      <div class="tool-name">RanzAI Cut</div>
+      <p class="tool-desc"><span class="id">Hapus background foto produk, portrait, atau objek secara instan dengan hasil PNG siap pakai.</span><span class="en">Remove backgrounds from product, portrait, or object photos instantly with ready-to-use PNG output.</span></p>
+      <div class="tool-divider"></div>
+      <a href="/login" class="tool-cta"><span class="id">Coba sekarang</span><span class="en">Try now</span> <svg viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+
+    <!-- Convert -->
+    <div class="tool-card reveal reveal-delay-3">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:rgba(249,115,22,.1);">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h9l5 5v11H4V4z" stroke="#f97316" stroke-width="1.8" stroke-linejoin="round"/><path d="M13 4v5h5" stroke="#f97316" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 14h8M8 17h5" stroke="#f97316" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <span class="tool-tag" style="color:#f97316;">Convert</span>
+      </div>
+      <div class="tool-name">RanzAI Convert</div>
+      <p class="tool-desc"><span class="id">Konversi gambar, dokumen, dan PDF ke format yang dibutuhkan secara cepat dan aman.</span><span class="en">Quickly and securely convert images, documents, and PDFs into any format you need.</span></p>
+      <div class="tool-divider"></div>
+      <a href="/login" class="tool-cta"><span class="id">Coba sekarang</span><span class="en">Try now</span> <svg viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+
+    <!-- Mockup -->
+    <div class="tool-card reveal reveal-delay-1" style="grid-column: span 3;">
+      <div style="display:flex;align-items:flex-start;gap:28px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:200px;">
+          <div class="tool-card-top">
+            <div class="tool-icon" style="background:rgba(34,229,160,.1);">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#22e5a0" stroke-width="1.8"/><path d="M8 21h8M12 17v4" stroke="#22e5a0" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <span class="tool-tag" style="color:var(--lime);">Mockup</span>
+          </div>
+          <div class="tool-name">RanzAI Mockup</div>
+          <p class="tool-desc"><span class="id">Buat mockup produk realistis untuk presentasi dan promosi bisnis secara profesional.</span><span class="en">Create realistic product mockups for professional business presentations and promotions.</span></p>
+          <div class="tool-divider"></div>
+          <a href="/login" class="tool-cta"><span class="id">Coba sekarang</span><span class="en">Try now</span> <svg viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px 16px;font-size:11px;font-weight:600;color:var(--muted);"><span class="id">Mockup Packaging</span><span class="en">Packaging Mockup</span></div>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px 16px;font-size:11px;font-weight:600;color:var(--muted);">T-Shirt Mockup</div>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px 16px;font-size:11px;font-weight:600;color:var(--muted);">Poster / Banner</div>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px 16px;font-size:11px;font-weight:600;color:var(--muted);">Business Card</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="reveal">
+    <div class="section-eyebrow"><span class="id">Cara Kerja</span><span class="en">How It Works</span></div>
+    <h2 class="section-heading">
+      <span class="id">Mulai dalam empat<br>langkah singkat.</span>
+      <span class="en">Start in four<br>simple steps.</span>
+    </h2>
+  </div>
+  <div class="steps-grid" style="margin-top:48px;">
+    <div class="step-card reveal reveal-delay-1">
+      <div class="step-num">01</div>
+      <div class="step-title"><span class="id">Buat Akun</span><span class="en">Create Account</span></div>
+      <p class="step-desc"><span class="id">Daftar gratis hanya dalam 30 detik.</span><span class="en">Register for free in just 30 seconds.</span></p>
+    </div>
+    <div class="step-card reveal reveal-delay-2">
+      <div class="step-num">02</div>
+      <div class="step-title">Top Up Ranz Coin</div>
+      <p class="step-desc"><span class="id">Pilih paket sesuai kebutuhan.</span><span class="en">Choose a package that fits your needs.</span></p>
+    </div>
+    <div class="step-card reveal reveal-delay-3">
+      <div class="step-num">03</div>
+      <div class="step-title"><span class="id">Gunakan AI Tools</span><span class="en">Use AI Tools</span></div>
+      <p class="step-desc"><span class="id">Akses 7 alat AI tanpa batas.</span><span class="en">Access 7 AI tools without limits.</span></p>
+    </div>
+    <div class="step-card reveal reveal-delay-4">
+      <div class="step-num">04</div>
+      <div class="step-title"><span class="id">Download Hasil</span><span class="en">Download Results</span></div>
+      <p class="step-desc"><span class="id">Unduh karya berkualitas tinggi.</span><span class="en">Download high-quality results.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="price-section" id="price">
+  <div class="reveal">
+    <div class="section-eyebrow"><span class="id">Harga Transparan</span><span class="en">Transparent Pricing</span></div>
+    <h2 class="section-heading">
+      <span class="id">Bayar sesuai pemakaian.<br>Tanpa langganan.</span>
+      <span class="en">Pay as you use.<br>No subscription.</span>
+    </h2>
+    <p class="section-sub-text">
+      <span class="id">Top up sekali, kredit tidak pernah hangus.</span>
+      <span class="en">Top up once, credits never expire.</span>
+    </p>
+  </div>
+  <div class="price-grid-new">
+
+    <div class="price-card-new reveal reveal-delay-1">
+      <div class="price-card-header">
+        <div class="price-card-name">Starter</div>
+        <div class="price-card-coins">24 Koin</div>
+      </div>
+      <div class="price-amount">Rp30.000</div>
+      <div class="price-card-desc"><span class="id">Cocok untuk coba-coba dan kebutuhan ringan.</span><span class="en">Great for trying out and light needs.</span></div>
+      <div class="price-feats">
+        <div class="price-feat"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>24 Ranz Coin</div>
+        <div class="price-feat"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="id">Akses 7 AI Tools</span><span class="en">Access 7 AI Tools</span></div>
+        <div class="price-feat"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="id">Koin tidak hangus</span><span class="en">Credits never expire</span></div>
+      </div>
+      <a href="/login" class="price-btn"><span class="id">Top Up Sekarang</span><span class="en">Top Up Now</span></a>
+    </div>
+
+    <div class="price-card-new reveal reveal-delay-2">
+      <div class="price-card-header">
+        <div class="price-card-name">Basic</div>
+        <div class="price-card-coins">40 Koin</div>
+      </div>
+      <div class="price-amount">Rp50.000</div>
+      <div class="price-card-desc"><span class="id">Pilihan favorit untuk pengguna harian.</span><span class="en">Favorite choice for daily users.</span></div>
+      <div class="price-feats">
+        <div class="price-feat"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>40 Ranz Coin</div>
+        <div class="price-feat"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="id">Akses 7 AI Tools</span><span class="en">Access 7 AI Tools</span></div>
+        <div class="price-feat"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="id">Koin tidak hangus</span><span class="en">Credits never expire</span></div>
+      </div>
+      <a href="/login" class="price-btn"><span class="id">Top Up Sekarang</span><span class="en">Top Up Now</span></a>
+    </div>
+
+    <div class="price-card-new featured reveal reveal-delay-3">
+      <div class="price-badge">
+        <svg width="10" height="10" viewBox="0 0 16 16" fill="none" style="display:inline;vertical-align:middle;margin-right:4px;"><path d="M8 1l1.5 4.5H15l-4.9 3.6 1.9 5.5L8 12.1l-4 3.5 1.9-5.5L1 6.5h5.2z" fill="currentColor"/></svg>
+        <span class="id">Paling Hemat</span><span class="en">Best Value</span>
+      </div>
+      <div class="price-card-header">
+        <div class="price-card-name">Early Access</div>
+        <div class="price-card-coins">120 Koin</div>
+      </div>
+      <div class="price-amount">Rp75.000</div>
+      <div class="price-card-desc"><span class="id">Bonus koin terbanyak — terbatas.</span><span class="en">Most bonus coins — limited time.</span></div>
+      <div class="price-feats">
+        <div class="price-feat"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>120 Ranz Coin</div>
+        <div class="price-feat"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="id">Akses 7 AI Tools</span><span class="en">Access 7 AI Tools</span></div>
+        <div class="price-feat"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="id">Koin tidak hangus</span><span class="en">Credits never expire</span></div>
+      </div>
+      <a href="/login" class="price-btn"><span class="id">Top Up Sekarang</span><span class="en">Top Up Now</span></a>
+    </div>
+
+    <div class="price-card-new reveal reveal-delay-4">
+      <div class="price-card-header">
+        <div class="price-card-name">Pro</div>
+        <div class="price-card-coins">80 Koin</div>
+      </div>
+      <div class="price-amount">Rp100.000</div>
+      <div class="price-card-desc"><span class="id">Untuk kreator dan profesional aktif.</span><span class="en">For active creators and professionals.</span></div>
+      <div class="price-feats">
+        <div class="price-feat"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>80 Ranz Coin</div>
+        <div class="price-feat"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="id">Akses 7 AI Tools</span><span class="en">Access 7 AI Tools</span></div>
+        <div class="price-feat"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="id">Koin tidak hangus</span><span class="en">Credits never expire</span></div>
+      </div>
+      <a href="/login" class="price-btn"><span class="id">Top Up Sekarang</span><span class="en">Top Up Now</span></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="reveal" style="text-align:center;">
+    <div class="section-eyebrow" style="justify-content:center;display:flex;">FAQ</div>
+    <h2 class="section-heading">
+      <span class="id">Pertanyaan <span class="accent">Umum.</span></span>
+      <span class="en">Frequently Asked <span class="accent">Questions.</span></span>
+    </h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item reveal reveal-delay-1">
+      <div class="faq-q">
+        <span class="id">Apakah saldo bisa dipakai untuk semua tools?</span><span class="en">Can the balance be used for all tools?</span>
+        <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="faq-a"><span class="id">Ya. Satu saldo RanzAI dapat digunakan untuk semua tools yang tersedia di dalam platform.</span><span class="en">Yes. One RanzAI balance can be used across all available tools inside the platform.</span></div>
+    </div>
+    <div class="faq-item reveal reveal-delay-2">
+      <div class="faq-q">
+        <span class="id">Apakah harus berlangganan?</span><span class="en">Do I need a subscription?</span>
+        <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="faq-a"><span class="id">Tidak. Sistem utama RanzAI adalah top-up saldo dan pakai sesuai kebutuhan. Tidak ada biaya langganan bulanan.</span><span class="en">No. RanzAI uses a top-up and pay-as-needed system. There are no monthly subscription fees.</span></div>
+    </div>
+    <div class="faq-item reveal reveal-delay-3">
+      <div class="faq-q">
+        <span class="id">Kenapa tombol harga diarahkan ke login?</span><span class="en">Why does the price button go to login?</span>
+        <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="faq-a"><span class="id">Karena proses top-up dan penggunaan saldo harus terhubung dengan akun pengguna.</span><span class="en">Because top-up and balance usage must be connected to a user account.</span></div>
+    </div>
+    <div class="faq-item reveal reveal-delay-4">
+      <div class="faq-q">
+        <span class="id">Apakah nominal bisa berubah?</span><span class="en">Can the pricing change?</span>
+        <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="faq-a"><span class="id">Bisa. Nominal dan biaya penggunaan tools dapat disesuaikan saat sistem berkembang.</span><span class="en">Yes. Packages and tool usage costs may be adjusted as the system evolves.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section" id="cta">
+  <div class="cta-box-dark reveal">
+    <h2 class="cta-dark-title">
+      <span class="id">Siap Mulai dengan RanzAI?</span>
+      <span class="en">Ready to build with RanzAI?</span>
+    </h2>
+    <p class="cta-dark-sub">
+      <span class="id">Gabung early access dan gunakan semua tools dengan satu saldo kredit.</span>
+      <span class="en">Join early access today and start using every tool in the suite with a single credit balance.</span>
+    </p>
+    <div class="cta-actions">
+      <a href="/register" class="cta-btn-white"><span class="id">Mulai Gratis →</span><span class="en">Get Started →</span></a>
+      <a href="/contact" class="cta-btn-dark"><span class="id">Hubungi Kami</span><span class="en">Contact Sales</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS SECTION -->
+<section class="reviews-section">
+  <div class="reviews-header">
+    <div class="section-badge">
+      <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="3"/></svg>
+      <span class="id">Testimoni</span>
+      <span class="en">Reviews</span>
+    </div>
+    <h2 class="section-title reveal">
+      <span class="id">Kepercayaan dari <span class="title-accent">Komunitas RanzAI</span></span>
+      <span class="en">Trusted by the <span class="title-accent">RanzAI Community</span></span>
+    </h2>
+    <p class="section-sub reveal reveal-delay-1">
+      <span class="id">Dengarkan cerita kreator dan pengguna RanzAI yang telah merasakan manfaatnya.</span>
+      <span class="en">Hear from creators and users who have benefited from RanzAI tools.</span>
+    </p>
+  </div>
+
+  <div class="reviews-grid" id="homeReviewsList">
+    <div class="reviews-loading">
+      <div style="text-align:center;color:var(--muted);font-size:14px;font-weight:600">
+        <span class="id">Memuat review...</span>
+        <span class="en">Loading reviews...</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-footer reveal reveal-delay-2">
+    <a href="/contact" class="btn-reviews-link">
+      <span class="id">Lihat Semua Review →</span>
+      <span class="en">View All Reviews →</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-new">
+  <div class="footer-col">
+    <div class="footer-logo"><div class="logo-mark" style="width:32px;height:32px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:14px;">R</div> RanzAI</div>
+    <p class="footer-tagline"><span class="id">Satu platform untuk semua workflow AI. Dibuat untuk kreator.</span><span class="en">One platform for every AI workflow. Designed for creators worldwide.</span></p>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Product</div>
+    <a href="#features" class="footer-link"><span class="id">Tools</span><span class="en">Tools</span></a>
+    <a href="#price" class="footer-link"><span class="id">Harga</span><span class="en">Pricing</span></a>
+    <a href="#faq" class="footer-link">FAQ</a>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Company</div>
+    <a href="/contact" class="footer-link"><span class="id">Kontak</span><span class="en">Contact</span></a>
+    <a href="/terms" class="footer-link">Terms</a>
+    <a href="/privacy" class="footer-link">Privacy Policy</a>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title"><span class="id">Mulai</span><span class="en">Get started</span></div>
+    <p class="footer-tagline"><span class="id">Buat akun gratis dalam hitungan detik.</span><span class="en">Create your free account in seconds.</span></p>
+    <a href="/register" class="footer-register-btn"><span class="id">Daftar →</span><span class="en">Register →</span></a>
+  </div>
+  <div class="footer-bottom">© 2025 RanzAI · RanzAI Engine</div>
+</footer>
+
+<script src="/scripts/pages/landing.js"></script>
+</body>
+</html>

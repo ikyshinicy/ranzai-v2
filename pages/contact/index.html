@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png" />
+  <title>Contact & Support — RanzAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/styles/pages/contact.css">
+</head>
+<body>
+  <div class="grid"></div>
+
+  <nav>
+    <div class="header-left">
+      <a class="logo" href="/dashboard">
+        <img src="/assets/icons/ranzai-logo.png" alt="RanzAI Logo">
+        RanzAI
+      </a>
+      <a class="back" href="/dashboard">← Kembali ke Dashboard</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="chip">Contact & Support</div>
+      <h1>Butuh Bantuan<br><span>Hubungi RanzAI</span></h1>
+      <p class="lead">
+        Untuk pertanyaan akun, saldo, penggunaan tools, bug, kerja sama, atau dukungan teknis,
+        silakan hubungi kami melalui email atau media sosial resmi.
+      </p>
+    </section>
+
+    <section class="contact-wrap">
+      <div class="panel">
+        <h2 class="panel-title">Kontak Utama</h2>
+        <p class="panel-desc">Gunakan email untuk bantuan yang butuh detail, lampiran, atau pengecekan akun.</p>
+
+        <div class="contact-list">
+          <a class="contact-item" href="mailto:bussinesranzai@gmail.com">
+            <div class="icon">✉️</div>
+            <div>
+              <div class="label">Email Support</div>
+              <div class="value">bussinesranzai@gmail.com</div>
+            </div>
+          </a>
+
+          <a class="contact-item" href="https://ranz-ai.com" target="_blank" rel="noopener">
+            <div class="icon">🌐</div>
+            <div>
+              <div class="label">Website</div>
+              <div class="value">ranz-ai.com</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="note">
+          Catatan: untuk masalah saldo atau transaksi, sertakan email akun, nominal top-up, waktu pembayaran, dan screenshot bukti pembayaran agar pengecekan lebih cepat.
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2 class="panel-title">Media Sosial</h2>
+        <p class="panel-desc">Ikuti update fitur, demo tools, dan informasi terbaru dari RanzAI.</p>
+
+        <div class="social-grid">
+          <a class="social-card" href="https://www.instagram.com/ranzaiofficial" target="_blank" rel="noopener">
+            <div class="social-top"><div class="social-icon">📸</div><div class="arrow">↗</div></div>
+            <div><div class="social-name">Instagram</div><div class="social-user">@ranzaiofficial</div></div>
+          </a>
+
+          <a class="social-card" href="https://www.threads.net/@ranzaiofficial" target="_blank" rel="noopener">
+            <div class="social-top"><div class="social-icon">🧵</div><div class="arrow">↗</div></div>
+            <div><div class="social-name">Threads</div><div class="social-user">@ranzaiofficial</div></div>
+          </a>
+
+          <a class="social-card" href="https://x.com/ranzaiofficial" target="_blank" rel="noopener">
+            <div class="social-top"><div class="social-icon">𝕏</div><div class="arrow">↗</div></div>
+            <div><div class="social-name">X / Twitter</div><div class="social-user">@ranzaiofficial</div></div>
+          </a>
+
+          <a class="social-card" href="https://www.facebook.com/profile.php?id=61590414760258" target="_blank" rel="noopener">
+            <div class="social-top"><div class="social-icon">f</div><div class="arrow">↗</div></div>
+            <div><div class="social-name">Facebook</div><div class="social-user">RanzAI Official</div></div>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- Review Section -->
+    <section style="margin-top:68px">
+      <div style="text-align:center;margin-bottom:42px">
+        <div class="chip">Bagikan Review Anda</div>
+        <h2 style="font-size:clamp(32px,4vw,52px);line-height:1.1;letter-spacing:-.04em;font-weight:900;margin-bottom:12px">
+          Pengalaman Anda Berarti <span style="background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">bagi RanzAI</span>
+        </h2>
+        <p class="lead" style="margin-bottom:0">
+          Ceritakan bagaimana RanzAI membantu kreativitas Anda. Review dari komunitas kami membantu pengguna lain membuat keputusan yang lebih baik.
+        </p>
+      </div>
+
+      <div class="contact-wrap">
+        <!-- Review Form -->
+        <div class="panel">
+          <h3 class="panel-title">Berikan Review</h3>
+          <p class="panel-desc">Isi form di bawah, lalu review Anda akan langsung muncul di halaman ini.</p>
+
+          <form id="reviewForm" style="display:flex;flex-direction:column;gap:16px">
+            <div>
+              <label style="display:block;font-size:12px;font-weight:900;color:var(--ink);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Nama Anda</label>
+              <input type="text" id="reviewName" placeholder="Nama lengkap atau username" required style="width:100%;padding:11px 14px;border-radius:14px;border:1px solid var(--border);background:#fff;color:var(--ink);font-size:14px;font-family:inherit;outline:none;transition:.2s" />
+              <span class="review-error" id="nameError" style="font-size:11px;color:#d32f2f;margin-top:4px;display:none"></span>
+            </div>
+
+            <div>
+              <label style="display:block;font-size:12px;font-weight:900;color:var(--ink);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Email</label>
+              <input type="email" id="reviewEmail" placeholder="email@kamu.com" required style="width:100%;padding:11px 14px;border-radius:14px;border:1px solid var(--border);background:#fff;color:var(--ink);font-size:14px;font-family:inherit;outline:none;transition:.2s" />
+              <span class="review-error" id="emailError" style="font-size:11px;color:#d32f2f;margin-top:4px;display:none"></span>
+            </div>
+
+            <div>
+              <label style="display:block;font-size:12px;font-weight:900;color:var(--ink);margin-bottom:10px;text-transform:uppercase;letter-spacing:.04em">Rating</label>
+              <div style="display:flex;gap:8px;align-items:center;justify-content:flex-start">
+                <input type="radio" id="star1" name="rating" value="1" style="cursor:pointer" />
+                <label for="star1" style="margin:0;cursor:pointer;font-size:22px">⭐</label>
+                <input type="radio" id="star2" name="rating" value="2" style="cursor:pointer" />
+                <label for="star2" style="margin:0;cursor:pointer;font-size:22px">⭐</label>
+                <input type="radio" id="star3" name="rating" value="3" style="cursor:pointer" />
+                <label for="star3" style="margin:0;cursor:pointer;font-size:22px">⭐</label>
+                <input type="radio" id="star4" name="rating" value="4" style="cursor:pointer" />
+                <label for="star4" style="margin:0;cursor:pointer;font-size:22px">⭐</label>
+                <input type="radio" id="star5" name="rating" value="5" style="cursor:pointer" />
+                <label for="star5" style="margin:0;cursor:pointer;font-size:22px">⭐</label>
+              </div>
+              <span class="review-error" id="ratingError" style="font-size:11px;color:#d32f2f;margin-top:4px;display:none"></span>
+            </div>
+
+            <div>
+              <label style="display:block;font-size:12px;font-weight:900;color:var(--ink);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Komentar</label>
+              <textarea id="reviewComment" placeholder="Ceritakan pengalaman Anda dengan RanzAI..." required minlength="10" style="width:100%;padding:11px 14px;border-radius:14px;border:1px solid var(--border);background:#fff;color:var(--ink);font-size:14px;font-family:inherit;outline:none;resize:vertical;min-height:110px;transition:.2s"></textarea>
+              <span class="review-error" id="commentError" style="font-size:11px;color:#d32f2f;margin-top:4px;display:none"></span>
+            </div>
+
+            <button id="submitReview" type="submit" style="padding:12px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--cyan));border:none;color:#fff;font-size:14px;font-weight:900;cursor:pointer;transition:.2s;font-family:inherit">
+              Kirim Review
+            </button>
+            <div id="submitMessage" style="text-align:center;font-size:13px;margin-top:8px;display:none"></div>
+          </form>
+        </div>
+
+        <!-- Reviews Display -->
+        <div class="panel">
+          <h3 class="panel-title">Review Pengguna</h3>
+          <p class="panel-desc">Lihat apa yang dikatakan komunitas RanzAI tentang platform kami.</p>
+          <div id="reviewsList" style="display:flex;flex-direction:column;gap:14px;max-height:600px;overflow-y:auto">
+            <div style="text-align:center;color:var(--muted);padding:20px;font-size:14px">Memuat review...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 RanzAI. All rights reserved.</footer>
+
+  <script src="/scripts/pages/contact.js"></script>
+</body>
+</html>

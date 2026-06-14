@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico"/>
+<title>Syarat Layanan — RanzAI</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/scripts/core/app.js"></script>
+
+
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/styles/pages/auth-terms.css">
+</head>
+<body>
+
+<div class="mesh-bg"></div>
+<div class="grid-bg"></div>
+
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-box">
+    <div class="loading-spinner"></div>
+    Memeriksa sesi...
+  </div>
+</div>
+
+<div class="wrap" id="mainWrap" style="display:none;">
+
+  <div class="card">
+    <div class="card-body">
+
+      <a href="https://ranz-ai.com" class="logo">
+        <div class="logo-mark"><img src="/assets/icons/ranzai-logo.png" alt="RanzAI"/></div>
+        <span class="logo-name">RanzAI</span>
+      </a>
+
+      <div class="badge">Terms of Service</div>
+      <h1 class="card-title">Syarat Layanan RanzAI</h1>
+      <p class="card-sub">Baca dan setujui syarat layanan berikut sebelum melanjutkan ke dashboard.</p>
+
+      <div class="terms-box">
+        <div class="date">Terakhir diperbarui: 4 Juni 2026</div>
+
+        <p>Dengan menggunakan RanzAI, pengguna dianggap telah membaca dan menyetujui syarat layanan ini. RanzAI saat ini masih dalam tahap pengembangan dan pengujian; tools sudah dapat digunakan, tetapi beberapa fitur mungkin belum sepenuhnya stabil.</p>
+
+        <h2>1. Penggunaan Layanan</h2>
+        <p>RanzAI menyediakan tools kreatif berbasis Engine RanzAI untuk membantu proses visual, teks, file, desain, dan kebutuhan kreatif digital lain.</p>
+
+        <h2>2. Akun Pengguna</h2>
+        <p>Pengguna dapat login menggunakan Google atau email. Pengguna bertanggung jawab menjaga akses akun dan tidak menyalahgunakan layanan.</p>
+
+        <h2>3. Konten yang Diunggah</h2>
+        <ul>
+          <li>Pengguna bertanggung jawab penuh atas gambar, file, atau teks yang diunggah.</li>
+          <li>Dilarang mengunggah konten ilegal, berbahaya, melanggar privasi, atau melanggar hak cipta.</li>
+          <li>RanzAI dapat menolak pemrosesan konten yang dinilai tidak sesuai.</li>
+        </ul>
+
+        <h2>4. Hasil dari Tools</h2>
+        <p>Output yang dihasilkan tools dapat digunakan pengguna, namun pengguna tetap wajib memeriksa ulang hasil sebelum dipakai untuk kebutuhan penting, komersial, legal, atau publik.</p>
+
+        <h2>5. Kredit, Paket, dan Pembayaran</h2>
+        <p>Beberapa fitur dapat menggunakan sistem kredit, paket, atau pembayaran. Detail harga dan akses dapat berubah mengikuti pengembangan layanan.</p>
+
+        <h2>6. Batasan Tanggung Jawab</h2>
+        <p>RanzAI disediakan sebagaimana adanya. Kami tidak bertanggung jawab atas kerugian langsung atau tidak langsung akibat penggunaan, kesalahan output, gangguan layanan, atau penyalahgunaan oleh pengguna.</p>
+
+        <h2>7. Perubahan Layanan</h2>
+        <p>Kami dapat menambah, mengubah, menonaktifkan, atau memperbaiki fitur kapan saja untuk meningkatkan kualitas layanan.</p>
+
+        <h2>8. Kontak</h2>
+        <p>Untuk pertanyaan terkait layanan, hubungi pengelola RanzAI.</p>
+        <div class="contact">Kontak: bussinesranzai@gmail.com</div>
+      </div>
+
+      <label class="agree-label">
+        <input type="checkbox" id="agreeCheckbox" onchange="toggleAgreeBtn()"/>
+        Saya telah membaca dan menyetujui seluruh Syarat Layanan RanzAI di atas.
+      </label>
+
+      <button class="submit-btn" id="agreeBtn" onclick="handleAgree()" disabled>
+        Saya Setuju & Lanjutkan →
+      </button>
+
+      <div class="alert alert-error" id="agreeError"></div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="/scripts/pages/auth-terms.js"></script>
+</body>
+</html>
