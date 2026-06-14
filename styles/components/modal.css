@@ -1,0 +1,29 @@
+/* RANZAI COMPONENT: modal.css */
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: var(--z-modal);
+  background: rgba(13, 31, 60, .45);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; opacity: 0; pointer-events: none;
+  transition: opacity var(--ease-out);
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal {
+  background: var(--surface); border-radius: var(--r-xl);
+  padding: 36px; width: 100%; max-width: 480px;
+  box-shadow: var(--shadow-hover);
+  transform: translateY(12px); transition: transform var(--ease-out);
+}
+.modal-overlay.open .modal { transform: translateY(0); }
+.modal-title { font: 800 20px 'Montserrat', sans-serif; color: var(--ink); margin-bottom: 8px; }
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 32px; height: 32px; border-radius: 50%;
+  border: none; background: var(--bg); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); transition: var(--ease);
+}
+.modal-close:hover { background: var(--border); color: var(--ink); }

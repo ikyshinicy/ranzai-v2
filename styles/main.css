@@ -1,0 +1,16 @@
+/* RANZAI — CSS ENTRYPOINT
+   Load this on pages, then add one page-specific stylesheet if needed.
+*/
+
+@import url("./base/global.css");
+@import url("./components/buttons.css");
+@import url("./components/cards.css");
+@import url("./components/badges.css");
+@import url("./components/forms.css");
+@import url("./components/navbar.css");
+@import url("./components/footer.css");
+@import url("./components/modal.css");
+@import url("./components/toast.css");
+@import url("./components/lang-toggle.css");
+@import url("./components/reveal.css");
+@import url("./fixes/cursor.css");

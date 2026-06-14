@@ -1,0 +1,30 @@
+/* RANZAI COMPONENT: buttons.css */
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 26px; border-radius: var(--r-md);
+  font: 700 14px 'Montserrat', sans-serif;
+  cursor: pointer; border: none; transition: var(--ease);
+}
+.btn-primary {
+  background: var(--accent); color: #fff;
+  box-shadow: var(--shadow-blue);
+}
+.btn-primary:hover { box-shadow: var(--shadow-blue-hover); transform: translateY(-1px); }
+.btn-outline {
+  background: var(--surface); color: var(--ink-soft);
+  border: 1px solid var(--border-strong);
+}
+.btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+.btn-ghost {
+  background: transparent; color: var(--ink-soft); padding: 10px 18px;
+}
+.btn-ghost:hover { color: var(--blue); background: var(--blue-light); }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-danger:hover { opacity: .88; transform: translateY(-1px); }
+.btn-sm  { padding: 8px 16px; font-size: 12px; border-radius: var(--r-sm); }
+.btn-lg  { padding: 15px 32px; font-size: 15px; }
+.btn:disabled { opacity: .45; pointer-events: none; }

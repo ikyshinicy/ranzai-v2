@@ -1,0 +1,59 @@
+/* RANZAI COMPONENT: footer.css */
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-logo {
+  display: flex; align-items: center; gap: 8px;
+  font: 800 16px 'Montserrat', sans-serif; color: var(--ink);
+}
+.footer-links { display: flex; align-items: center; gap: 20px; }
+.footer-links a { font-size: 13px; color: var(--muted); transition: color var(--ease); }
+.footer-links a:hover { color: var(--blue); }
+.footer-copy { font-size: 12px; color: var(--muted); }
+
+/* footer grid — landing page */
+.footer-new {
+  border-top: 1px solid var(--border);
+  padding: 48px 40px 24px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  max-width: 1200px; margin: 0 auto;
+}
+.footer-bottom {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  font: 400 12px 'Montserrat', sans-serif;
+  color: var(--muted);
+}
+.footer-col-title {
+  font: 700 13px 'Montserrat', sans-serif;
+  color: var(--ink); margin-bottom: 14px;
+}
+.footer-link {
+  display: block;
+  font: 500 13px 'Montserrat', sans-serif;
+  color: var(--muted); margin-bottom: 10px;
+  transition: color var(--ease);
+}
+.footer-link:hover { color: var(--blue); }
+.footer-tagline {
+  font-size: 13px; color: var(--muted);
+  line-height: 1.6; margin: 8px 0 16px;
+}
+.footer-register-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--blue); color: #fff;
+  padding: 10px 20px; border-radius: var(--r-sm);
+  font: 700 13px 'Montserrat', sans-serif;
+  transition: background var(--ease), transform var(--ease);
+}
+.footer-register-btn:hover { background: var(--blue-dark); transform: translateY(-1px); }

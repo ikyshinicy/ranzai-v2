@@ -1,0 +1,15 @@
+/* RANZAI COMPONENT: lang-toggle.css */
+
+/* ============================================================
+   LANG TOGGLE
+   ============================================================ */
+.lang-toggle {
+  display: flex; gap: 2px; padding: 3px;
+  border-radius: var(--r-sm); background: var(--bg); border: 1px solid var(--border);
+}
+.lang-toggle button {
+  padding: 5px 12px; border: none; border-radius: 6px;
+  font: 600 12px 'Montserrat', sans-serif; letter-spacing: .04em;
+  color: var(--muted); background: transparent; cursor: pointer; transition: var(--ease);
+}
+.lang-toggle button.active { background: var(--surface); color: var(--blue); box-shadow: var(--shadow); }

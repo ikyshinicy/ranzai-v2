@@ -1,0 +1,252 @@
+/* RANZAI — BASE GLOBAL CSS
+   Foundation only: fonts, tokens, reset, base, layout helpers, global responsive.
+*/
+
+
+/* ============================================================
+   FONTS
+   ============================================================ */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/Montserrat-Light.woff2') format('woff2');
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/Montserrat-SemiBold.woff2') format('woff2');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/Montserrat-ExtraBold.woff2') format('woff2');
+  font-weight: 800; font-style: normal; font-display: swap;
+}
+
+
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+  /* surfaces */
+  --bg:            #f7f9fc;
+  --surface:       #ffffff;
+  --surface-alt:   #f0f4fa;
+  --border:        #e6eaf2;
+  --border-strong: #d6deeb;
+
+  /* text */
+  --ink:      #0d1f3c;
+  --ink-soft: #4a5b7c;
+  --muted:    #8a97b5;
+
+  /* brand */
+  --blue:       #1a6bff;
+  --blue-dark:  #0e54d6;
+  --blue-light: rgba(26, 107, 255, .08);
+  --cyan:       #00c2b8;
+  --accent:     linear-gradient(135deg, var(--blue), var(--cyan));
+
+  /* semantic */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger:  #ef4444;
+
+  /* radius */
+  --r-xl: 20px;
+  --r-lg: 16px;
+  --r-md: 12px;
+  --r-sm:  8px;
+  --r-xs:  4px;
+
+  /* shadow */
+  --shadow:            0 2px 12px rgba(13, 31, 60, .06);
+  --shadow-hover:      0 8px 28px rgba(13, 31, 60, .10);
+  --shadow-blue:       0 4px 16px rgba(26, 107, 255, .22);
+  --shadow-blue-hover: 0 6px 22px rgba(26, 107, 255, .32);
+
+  /* motion */
+  --ease:     .18s ease;
+  --ease-out: .24s cubic-bezier(0, 0, .2, 1);
+
+  /* z-index */
+  --z-nav:     500;
+  --z-overlay: 800;
+  --z-modal:   900;
+  --z-toast:   1000;
+
+  /* spacing */
+  --sp-1:  4px;  --sp-2:  8px;  --sp-3: 12px;
+  --sp-4: 16px;  --sp-5: 20px;  --sp-6: 24px;
+  --sp-8: 32px;  --sp-10: 40px; --sp-12: 48px; --sp-16: 64px;
+}
+
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+img, svg { display: block; max-width: 100%; }
+ul, ol { list-style: none; }
+button { font-family: inherit; }
+
+
+/* ============================================================
+   BASE
+   ============================================================ */
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--ink);
+}
+p { line-height: 1.7; }
+strong { font-weight: 700; }
+
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+.section   { padding: 80px 60px; max-width: 1200px; margin: 0 auto; }
+.page-body { padding-top: 64px; } /* offset for fixed nav */
+
+.flex         { display: flex; }
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-col     { display: flex; flex-direction: column; }
+.gap-1 { gap: var(--sp-1); } .gap-2 { gap: var(--sp-2); }
+.gap-3 { gap: var(--sp-3); } .gap-4 { gap: var(--sp-4); }
+.gap-6 { gap: var(--sp-6); } .gap-8 { gap: var(--sp-8); }
+
+.text-center    { text-align: center; }
+.text-muted     { color: var(--muted); }
+.text-blue      { color: var(--blue); }
+.text-sm        { font-size: 13px; }
+.text-xs        { font-size: 11px; }
+.font-bold      { font-weight: 700; }
+.font-extrabold { font-weight: 800; }
+.mt-auto { margin-top: auto; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.w-full  { width: 100%; }
+
+
+/* ============================================================
+   LANGUAGE — pairs with js/i18n.js
+   ============================================================ */
+.lang-id .en { display: none !important; }
+.lang-en .id { display: none !important; }
+
+
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+.eyebrow {
+  font: 700 11px 'Montserrat', sans-serif;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 12px;
+}
+.section-title {
+  font: 800 clamp(28px, 4vw, 44px)/1.15 'Montserrat', sans-serif;
+  letter-spacing: -.02em; color: var(--ink); margin-bottom: 14px;
+}
+.section-title .accent {
+  background: var(--accent);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.section-sub { font-size: 15px; color: var(--muted); max-width: 520px; line-height: 1.7; }
+
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+.divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+.divider-text {
+  display: flex; align-items: center; gap: 12px;
+  font: 600 12px 'Montserrat', sans-serif; color: var(--muted);
+}
+.divider-text::before, .divider-text::after { content: ''; flex: 1; border-top: 1px solid var(--border); }
+
+
+/* ============================================================
+   SPINNER / LOADING
+   ============================================================ */
+.spinner {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 2px solid var(--border); border-top-color: var(--blue);
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-overlay {
+  position: absolute; inset: 0; border-radius: inherit;
+  background: rgba(255,255,255,.75);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10;
+}
+
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 99px; }
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .container, .section { padding-left: 32px; padding-right: 32px; }
+  nav { padding: 0 32px; }
+  footer { padding: 28px 32px; }
+  .footer-new { padding: 40px 32px 20px; gap: 28px; }
+}
+@media (max-width: 768px) {
+  .footer-new { grid-template-columns: 1fr 1fr; padding: 36px 20px 16px; gap: 24px; }
+}
+@media (max-width: 640px) {
+  .container, .section { padding-left: 16px; padding-right: 16px; }
+  nav { padding: 0 16px; height: 58px; }
+  .nav-drawer { top: 58px; }
+  .page-body { padding-top: 58px; }
+  /* sembunyikan nav links & right di mobile, tampilkan hamburger */
+  .nav-links { display: none; }
+  .nav-right .btn-primary,
+  .nav-right .lang-toggle { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-drawer { display: flex; }
+  footer { padding: 20px 16px; flex-direction: column; text-align: center; }
+  .footer-new { grid-template-columns: 1fr; gap: 20px; padding: 28px 16px 16px; }
+  .footer-bottom { text-align: center; padding-top: 16px; }
+  .section { padding-top: 56px; padding-bottom: 56px; }
+  .section-title { font-size: clamp(24px, 7vw, 34px); }
+}
+
+
+/* ============================================================
+   RANZAI — GLOBAL CSS
+   Single file. Load on every page:
+   <link rel="stylesheet" href="/styles/main.css">
+   ============================================================ */

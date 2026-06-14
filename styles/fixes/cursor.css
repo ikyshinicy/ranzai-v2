@@ -1,0 +1,91 @@
+/* RanzAI Cursor Fix
+   Paksa semua cursor kembali ke cursor bawaan browser.
+   Gunakan setelah dashboard.css dan shared.css.
+*/
+
+html,
+body,
+body *,
+.ranz-tool,
+.ranz-tool *,
+.sidebar,
+.sidebar *,
+.main-area,
+.main-area *,
+.page,
+.page *,
+.app-shell,
+.app-shell * {
+  cursor: auto !important;
+}
+
+button,
+a,
+[role="button"],
+input[type="button"],
+input[type="submit"],
+input[type="file"],
+.sidebar-link,
+.sidebar-tool,
+.tool-card,
+.upload-zone,
+.gel-dropzone,
+.cut-dropzone,
+.write-dropzone,
+.format-btn,
+.gel-scale-btn,
+.cut-opt-btn,
+.write-action-btn,
+.cut-action-btn,
+.gel-action-btn,
+.copy-btn,
+.reset-btn,
+.generate-btn,
+.gel-generate-btn,
+.cut-generate-btn,
+.write-generate-btn,
+.change-btn,
+.gel-preview-change,
+.cut-preview-change,
+.write-preview-change {
+  cursor: pointer !important;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+textarea,
+[contenteditable="true"],
+.write-result-box {
+  cursor: text !important;
+}
+
+/* Matikan elemen custom cursor bulat */
+.cursor,
+.cursor-dot,
+.cursor-ring,
+.cursor-circle,
+.cursor-follower,
+.custom-cursor,
+.mouse-cursor,
+.pointer,
+.pointer-dot,
+.pointer-ring,
+#cursor,
+#cursorDot,
+#cursor-dot,
+#cursorRing,
+#cursor-ring,
+#customCursor,
+#custom-cursor,
+#mouseCursor,
+#mouse-cursor {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
